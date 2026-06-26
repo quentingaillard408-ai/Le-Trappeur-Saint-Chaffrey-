@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bar Le Trappeur — Saint-Chaffrey · Serre Chevalier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#13221A;--pine2:#1B2E23;--pine3:#243D2F;
+  --snow:#EDE5D0;--sand:#B8AC94;--ember:#D4913A;--ember2:#B5722A;
+  --lichen:#7A9080;--nav-h:64px;--tab-h:52px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--pine);color:var(--snow);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);
+  background:rgba(19,34,26,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,145,58,.15);
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.nav-logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.3rem;color:var(--snow);display:flex;align-items:center;gap:10px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ember)}
+.nav-cta{background:var(--ember);color:var(--pine);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border-radius:6px;white-space:nowrap;transition:all .2s}
+.nav-cta:hover{background:var(--ember2)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--nav-h)+32px) 24px 52px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,#243D2F 0%,transparent 65%),linear-gradient(180deg,#13221A 0%,#0D1A11 100%)}
+.stars{position:absolute;inset:0;z-index:1;background-image:radial-gradient(1px 1px at 15% 20%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 60% 12%,rgba(255,255,255,.6) 0%,transparent 100%),radial-gradient(1px 1px at 80% 5%,rgba(255,255,255,.35) 0%,transparent 100%),radial-gradient(1px 1px at 30% 55%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 75% 35%,rgba(255,255,255,.4) 0%,transparent 100%)}
+.mountains{position:absolute;bottom:0;left:0;right:0;z-index:2;height:42vh;min-height:180px}
+.hero-content{position:relative;z-index:3;max-width:700px;margin:0 auto}
+.hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--lichen);font-weight:500;margin-bottom:18px}
+.hero-title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(3.5rem,12vw,6.5rem);line-height:.88;letter-spacing:-.03em;color:var(--snow)}
+.hero-title em{font-style:italic;font-weight:300;color:var(--ember);display:block;font-size:clamp(1.2rem,3.5vw,1.9rem);letter-spacing:.02em;margin-top:10px}
+.hero-sub{color:var(--sand);font-size:clamp(.85rem,2.5vw,.98rem);margin:16px auto 30px;max-width:460px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--ember);color:var(--pine);font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;padding:13px 28px;border-radius:8px;transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+.btn-p:hover{background:var(--ember2);transform:translateY(-2px)}
+.btn-s{border:1px solid rgba(212,145,58,.4);color:var(--snow);font-size:.88rem;padding:13px 28px;border-radius:8px;transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+.btn-s:hover{border-color:var(--ember);transform:translateY(-2px)}
+.hero-info{position:relative;z-index:3;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-info-item{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--sand)}
+.hero-info-item svg{color:var(--ember);flex:none}
+
+/* WC BANNER */
+.wc-banner{background:linear-gradient(90deg,#0D47A1,#1565C0,#C62828,#1565C0,#0D47A1);background-size:300% 100%;animation:wc-grad 6s ease infinite;border-top:3px solid var(--ember);border-bottom:3px solid var(--ember);padding:18px 20px;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+@keyframes wc-grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.wc-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:center}
+.wc-ball{color:#FFD700;animation:wc-spin 6s linear infinite;filter:drop-shadow(0 0 5px rgba(255,215,0,.5))}
+@keyframes wc-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.wc-text strong{font-family:'Fraunces',serif;font-size:1.35rem;color:#fff;font-weight:800;display:block;text-shadow:0 2px 6px rgba(0,0,0,.3)}
+.wc-text span{font-size:.88rem;color:#FFE8B0}
+.wc-screens{display:flex;align-items:center;gap:7px;background:rgba(0,0,0,.22);padding:7px 14px;border-radius:99px;border:1.5px solid #FFD700;color:#FFD700;font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;animation:wc-pulse 2s ease infinite}
+@keyframes wc-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,.4)}50%{box-shadow:0 0 0 7px rgba(255,215,0,0)}}
+@media(prefers-reduced-motion:reduce){.wc-banner,.wc-ball,.wc-screens{animation:none}}
+
+/* MAIN TABS */
+.main-tabs{position:sticky;top:var(--nav-h);z-index:90;background:rgba(19,34,26,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,145,58,.2);display:flex;height:var(--tab-h)}
+.main-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);cursor:pointer;transition:all .2s;border-bottom:3px solid transparent}
+.main-tab.active{color:var(--ember);border-bottom-color:var(--ember)}
+.main-tab:hover:not(.active){color:var(--snow)}
+
+/* CONTENT PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* INNER TABS */
+.inner-tabs-wrap{background:var(--pine2);position:sticky;top:calc(var(--nav-h) + var(--tab-h));z-index:80;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.inner-tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;max-width:860px;margin:0 auto}
+.itab{padding:7px 15px;border-radius:99px;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.1);color:var(--sand);background:transparent}
+.itab.active{background:var(--ember);color:var(--pine);border-color:var(--ember)}
+.itab:hover:not(.active){border-color:var(--ember);color:var(--snow)}
+.inner-section{display:none;padding:52px 24px}
+.inner-section.active{display:block}
+.section-inner{max-width:760px;margin:0 auto}
+.s-eyebrow{font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:var(--lichen);font-weight:600;text-align:center;margin-bottom:8px;display:block}
+.s-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.8rem,5.5vw,2.8rem);text-align:center;letter-spacing:-.02em;margin-bottom:36px}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 32px;width:min(380px,70%);color:var(--ember2)}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--ember2),transparent)}
+
+/* MENU ITEMS */
+.item{margin:0 auto 18px;max-width:660px}
+.line{display:flex;align-items:baseline;gap:8px}
+.name{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;color:var(--snow)}
+.dots{flex:1;border-bottom:1.5px dotted rgba(122,144,128,.35);transform:translateY(-4px);min-width:14px}
+.price{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ember);white-space:nowrap}
+.price .per{font-family:'Inter',sans-serif;font-size:.7rem;color:var(--sand)}
+.desc{color:var(--sand);font-size:.85rem;margin-top:2px}
+.two{color:var(--sand);font-size:.82rem;margin-top:3px}
+.two b{color:var(--snow)}
+.badge{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-left:5px;vertical-align:middle;color:var(--snow)}
+.bg-ember{background:var(--ember2)}
+.bg-alpes{background:#2A5235}
+.bg-d4f{background:#5C3D0A}
+
+/* HIGHLIGHT BLOCK */
+.highlight{background:var(--pine2);border:1px solid rgba(212,145,58,.2);border-radius:12px;padding:22px 24px;max-width:660px;margin:0 auto 20px}
+.highlight .item{margin-bottom:14px}
+.highlight .item:last-child{margin-bottom:0}
+
+/* GLACES */
+.artisan-banner{display:flex;align-items:center;justify-content:center;gap:14px;background:var(--pine2);border:1px solid rgba(212,145,58,.22);border-radius:12px;padding:13px 18px;max-width:660px;margin:0 auto 22px;flex-wrap:wrap}
+.art-item{display:flex;flex-direction:column;align-items:center;gap:3px}
+.art-item span{font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lichen)}
+.art-sep{width:1px;height:28px;background:rgba(255,255,255,.08)}
+.art-name{font-family:'Fraunces',serif;color:var(--snow);font-size:.85rem}
+.art-sub{font-size:.68rem;color:var(--sand)}
+.prix-boules{display:flex;gap:10px;justify-content:center;margin:0 auto 22px;max-width:400px}
+.prix-box{background:var(--pine2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 16px;text-align:center;flex:1}
+.prix-box .nb{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--ember)}
+.prix-box .lbl{color:var(--sand);font-size:.74rem}
+.prix-box .ext{color:var(--lichen);font-size:.63rem;margin-top:2px}
+.parfums-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-width:660px;margin:0 auto}
+.parfum{background:var(--pine2);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:9px}
+.parfum.alpes{border-color:rgba(212,145,58,.28);background:#1A2E20}
+.p-dot{width:20px;height:20px;border-radius:50%;flex:none}
+.p-name{font-family:'Fraunces',serif;font-size:.86rem;color:var(--snow);font-weight:600}
+.p-type{font-size:.6rem;color:var(--lichen);text-transform:uppercase;letter-spacing:.07em}
+
+/* BOISSONS */
+.biere-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:660px;margin:0 auto}
+.biere-card{background:var(--pine2);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px 16px}
+.biere-name{font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--snow);margin-bottom:3px}
+.biere-deg{font-size:.72rem;color:var(--lichen);margin-bottom:8px}
+.biere-prix{display:flex;gap:8px;flex-wrap:wrap}
+.biere-p{background:rgba(212,145,58,.12);color:var(--ember);font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:99px}
+
+/* COCKTAILS */
+.cocktail-section{margin-bottom:32px}
+.cocktail-section h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--ember);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(212,145,58,.2)}
+.cocktail-d4f{background:linear-gradient(135deg,#1A2A1A,#2A3A1E);border:1px solid rgba(212,145,58,.25);border-radius:12px;padding:20px;max-width:660px;margin:0 auto}
+.cocktail-d4f h3{color:#FFD700;border-bottom-color:rgba(255,215,0,.2)}
+
+/* DISTILLERIE */
+.d4f-hero{background:linear-gradient(135deg,#1A2A1A,#2A3A1E);border:1px solid rgba(212,145,58,.2);border-radius:14px;padding:28px;max-width:760px;margin:0 auto 40px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.d4f-logo{text-align:center}
+.d4f-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--snow);margin-top:8px}
+.d4f-sub{color:var(--sand);font-size:.76rem;margin-top:3px}
+.d4f-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);border-bottom:1px solid rgba(212,145,58,.3)}
+.d4f-story{color:var(--sand);font-size:.86rem;line-height:1.7}
+.d4f-story strong{color:var(--snow)}
+.liqueurs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;max-width:760px;margin:0 auto 24px}
+.liqueur-card{background:var(--pine2);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px}
+.liq-name{font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--snow);margin-bottom:2px}
+.liq-deg{font-size:.7rem;color:var(--lichen);margin-bottom:8px}
+.liq-prix{display:flex;gap:6px}
+.liq-p{background:rgba(212,145,58,.1);color:var(--ember);font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:99px}
+.liq-desc{font-size:.75rem;color:var(--sand);margin:5px 0 8px;line-height:1.4;font-style:italic}
+.boutique-banner{background:linear-gradient(135deg,#1A2A1A,#2A3A1E);border:1px solid rgba(212,145,58,.22);border-radius:12px;padding:20px 24px;max-width:660px;margin:0 auto;text-align:center}
+.boutique-banner strong{font-family:'Fraunces',serif;font-size:1rem;color:var(--snow);display:block;margin-bottom:4px}
+.boutique-banner p{color:var(--sand);font-size:.82rem}
+
+/* VINS */
+.vin-group{margin-bottom:28px;max-width:660px;margin-inline:auto}
+.vin-group h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ember);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid rgba(212,145,58,.18)}
+
+/* INFOS */
+.infos-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto}
+.info-card{background:var(--pine2);border-radius:12px;padding:22px 18px;display:flex;flex-direction:column;gap:10px}
+.info-card h3{font-family:'Fraunces',serif;font-size:1rem;color:var(--snow);display:flex;align-items:center;gap:8px}
+.info-card h3 svg{color:var(--ember);flex:none}
+.info-row strong{color:var(--snow);font-size:.84rem;display:block}
+.info-row span{color:var(--sand);font-size:.8rem}
+.info-btn{margin-top:auto;background:var(--ember);color:var(--pine);font-weight:700;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;border-radius:8px;text-align:center;display:block;transition:all .2s}
+.info-btn:hover{background:var(--ember2)}
+.info-btn.sec{background:transparent;color:var(--snow);border:1px solid rgba(212,145,58,.3)}
+.info-btn.sec:hover{border-color:var(--ember)}
+
+/* FOOTER */
+footer{background:var(--pine);border-top:1px solid rgba(255,255,255,.06);padding:36px 24px 90px;text-align:center}
+.foot-logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--snow)}
+.foot-sub{color:var(--sand);font-size:.76rem;margin-top:3px}
+.foot-note{color:var(--lichen);font-size:.66rem;margin-top:4px}
+
+/* STICKY */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:99;background:rgba(19,34,26,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(212,145,58,.15);padding:10px 16px;display:flex;gap:8px;justify-content:center}
+.sticky-bar a{flex:1;max-width:220px;text-align:center;padding:11px 12px;border-radius:8px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s}
+.scall{background:var(--ember);color:var(--pine)}
+.scall:hover{background:var(--ember2)}
+.ssms{border:1px solid rgba(212,145,58,.38);color:var(--snow)}
+.ssms:hover{border-color:var(--ember)}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .infos-grid{grid-template-columns:1fr}
+  .biere-grid{grid-template-columns:1fr}
+  .parfums-grid{grid-template-columns:1fr}
+  .d4f-hero{grid-template-columns:1fr;text-align:center}
+  nav{padding:0 14px}
+}
+@media(max-width:420px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .sticky-bar{flex-direction:column;padding:8px 12px}
+  .sticky-bar a{max-width:100%;width:100%}
+  .prix-boules{flex-direction:column;max-width:200px;margin-inline:auto}
+}
+</style>
+</head>
+<body>
+
+<style>
+.lang-bar{position:fixed;top:0;left:0;right:0;z-index:200;height:36px;background:rgba(13,26,17,.98);border-bottom:1px solid rgba(212,145,58,.12);display:flex;align-items:center;gap:4px;padding:0 16px;overflow-x:auto;scrollbar-width:none}
+.lang-bar::-webkit-scrollbar{display:none}
+.lang-btn{background:transparent;border:none;cursor:pointer;font-size:.7rem;font-weight:600;letter-spacing:.04em;color:var(--sand);padding:3px 8px;border-radius:4px;white-space:nowrap;transition:all .15s;font-family:'Inter',sans-serif}
+.lang-btn.active{background:var(--ember);color:var(--pine)}
+.lang-btn:hover:not(.active){color:var(--snow)}
+nav{top:36px !important}
+.main-tabs{top:calc(36px + var(--nav-h)) !important}
+.inner-tabs-wrap{top:calc(36px + var(--nav-h) + var(--tab-h)) !important}
+</style>
+<div class="lang-bar" id="langBar">
+  <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 Français</button>
+  <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('de')">🇩🇪 Deutsch</button>
+  <button class="lang-btn" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+  <button class="lang-btn" onclick="setLang('it')">🇮🇹 Italiano</button>
+  <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+  <button class="lang-btn" onclick="setLang('zh')">🇨🇳 中文</button>
+  <button class="lang-btn" onclick="setLang('ja')">🇯🇵 日本語</button>
+</div>
+
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M11 2 L19 10 L15 10 L15 20 L7 20 L7 10 L3 10 Z" fill="#D4913A"/></svg>
+    Le Trappeur
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('food')">La carte</a></li>
+    <li><a href="#" onclick="showPage('drink')">Boissons</a></li>
+    <li><a href="#" onclick="showPage('infos')">Infos</a></li>
+  </ul>
+  <div class="nav-right" style="display:flex;align-items:center;gap:10px">
+    <a href="https://www.facebook.com/letrappeur05/" target="_blank" title="Facebook" style="color:var(--sand);transition:color .2s" onmouseover="this.style.color='#D4913A'" onmouseout="this.style.color='#B8AC94'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/letrappeurbar/" target="_blank" title="Instagram" style="color:var(--sand);transition:color .2s" onmouseover="this.style.color='#D4913A'" onmouseout="this.style.color='#B8AC94'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="tel:+33625422015" class="nav-cta"><span data-i18n="nav_reserver">Réserver</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="stars"></div>
+  <svg class="mountains" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 300 L0 200 L80 140 L160 180 L260 80 L340 130 L420 60 L500 120 L580 50 L660 100 L740 30 L820 90 L900 20 L980 80 L1060 40 L1140 100 L1220 55 L1300 110 L1380 70 L1440 100 L1440 300 Z" fill="#1B2E23"/>
+    <path d="M0 300 L0 240 L120 180 L200 220 L300 150 L380 190 L460 130 L560 170 L640 110 L720 155 L800 90 L880 140 L960 100 L1040 150 L1120 120 L1200 160 L1280 130 L1360 165 L1440 145 L1440 300 Z" fill="#152A1E" opacity=".9"/>
+    <path d="M0 300 L0 260 L150 210 L260 240 L360 185 L460 225 L560 170 L660 210 L760 160 L860 200 L960 165 L1060 200 L1160 175 L1260 205 L1360 185 L1440 200 L1440 300 Z" fill="#13221A"/>
+  </svg>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Saint-Chaffrey · Serre Chevalier · 1365 m</p>
+    <h1 class="hero-title"><span data-i18n="spirit_title">Le Trappeur</span><em>Bar à tapas, esprit du partage</em></h1>
+    <p class="hero-sub">Tapas, planches, glaces artisanales des Alpes & cocktails signature de la Distillerie des 4 Frères.</p>
+    <div class="hero-btns">
+      <a href="tel:+33625422015" class="btn-p">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler
+      </a>
+      <a href="sms:+33625422015?body=Bonjour, je souhaite réserver une table au Trappeur." class="btn-s">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        SMS
+      </a>
+    </div>
+  </div>
+  <div class="hero-info">
+    <div class="hero-info-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Tous les jours · 8h – 00h</div>
+    <div class="hero-info-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>480 Rue du Centre, Saint-Chaffrey</div>
+    <div class="hero-info-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+33 6 25 42 20 15</div>
+  </div>
+</section>
+
+<!-- WC BANNER -->
+<div class="wc-banner">
+  <div class="wc-inner">
+    <div class="wc-ball"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg></div>
+    <div class="wc-text"><strong data-i18n="wc_title">⚽ Coupe du Monde 2026</strong><span data-i18n="wc_sub">Tous les matchs retransmis en direct chez nous</span></div>
+    <div class="wc-screens"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span data-i18n="wc_screens">2 ÉCRANS GÉANTS</span></div>
+  </div>
+</div>
+
+<!-- MAIN TABS -->
+<div class="main-tabs">
+  <div class="main-tab active" onclick="showPage('food',this)">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+    <span data-i18n="tab_carte">La Carte</span>
+  </div>
+  <div class="main-tab" onclick="showPage('drink',this)">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 5 2 9 5 9s5-4 5-9"/></svg>
+    <span data-i18n="tab_boissons">Boissons</span>
+  </div>
+  <div class="main-tab" onclick="showPage('infos',this)">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span data-i18n="nav_infos">Infos</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ CARTE FOOD -->
+<div id="page-food" class="page active">
+  <div class="inner-tabs-wrap">
+    <div class="inner-tabs">
+      <button class="itab active" onclick="showTab('tapas',this,'food')"><span data-i18n="tab_tapas">Tapas</span></button>
+      <button class="itab" onclick="showTab('plats',this,'food')"><span data-i18n="tab_plats">Plats</span></button>
+      <button class="itab" onclick="showTab('desserts',this,'food')"><span data-i18n="tab_desserts">Desserts</span></button>
+      <button class="itab" onclick="showTab('glaces',this,'food')"><span data-i18n="tab_glaces">Glaces</span></button>
+      <button class="itab" onclick="showTab('gouters',this,'food')"><span data-i18n="tab_gouters">Goûters</span></button>
+    </div>
+  </div>
+
+  <!-- TAPAS -->
+  <div id="food-tapas" class="inner-section active">
+    <div class="section-inner">
+      <span class="s-eyebrow">À grignoter & partager</span>
+      <h2 class="s-title"><span data-i18n="s_tapas_t">Les Tapas</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="item"><div class="line"><span class="name">Oignons rings ×6</span><span class="dots"></span><span class="price">7 €</span></div><div class="desc"><span data-i18n="d_oignons">Beignets dorés, sauce barbecue fumée.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Beignets de calamars ×6</span><span class="dots"></span><span class="price">8 €</span></div><div class="desc"><span data-i18n="d_calamar">Frits à la minute, quartier de citron.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Chicken wings ×6</span><span class="dots"></span><span class="price">8 €</span></div><div class="desc"><span data-i18n="d_wings">Laquées à la sauce barbecue maison.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Cheddar donuts ×6</span><span class="dots"></span><span class="price">7 €</span></div><div class="desc"><span data-i18n="d_donut">Bouchées fondantes, panure dorée.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Mozza sticks ×6</span><span class="dots"></span><span class="price">7 €</span></div><div class="desc"><span data-i18n="d_mozza">Cœur coulant, chapelure croustillante.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Assiette de frite</span><span class="dots"></span><span class="price">5 €</span></div></div>
+
+      <div class="highlight">
+        <div class="item"><div class="line"><span class="name">Focaccia au romarin</span><span class="dots"></span><span class="price">20 €</span></div><div class="desc"><span data-i18n="d_focaccia">Mozzarella, jambon cru, parmesan, tartare de tomates, pesto.</span></div></div>
+        <div class="item"><div class="line"><span class="name">Nachos, avocat, crème fraîche</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc"><span data-i18n="d_nachos">Guacamole maison, ciboulette.</span></div></div>
+        <div class="item"><div class="line"><span class="name">Stracciatella & toast à l'ail</span><span class="dots"></span><span class="price">14 €</span></div><div class="desc"><span data-i18n="d_straccia">Stracciatella 100g, toasts grillés, huile d'olive, basilic frais.</span></div></div>
+        <div class="item"><div class="line"><span class="name">Assortiment charcuteries & fromages</span><span class="dots"></span><span class="price">19 €</span></div><div class="desc"><span data-i18n="d_charcut">Comté, tomme de brebis, chèvre, jambon cru, coppa, jambon blanc.</span></div></div>
+      </div>
+
+      <div class="item" style="margin-top:8px"><div class="line"><span class="name">Maxi tapas</span><span class="dots"></span><span class="price">30 €</span></div><div class="desc"><span data-i18n="d_maxi">6 oignons rings, 6 chicken wings, 6 beignets de calamars, mozza sticks, frites.</span></div></div>
+    </div>
+  </div>
+
+  <!-- PLATS -->
+  <div id="food-plats" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_plats_ey">À l'ardoise</span></span>
+      <h2 class="s-title"><span data-i18n="s_plats_t">Les Plats</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="item"><div class="line"><span class="name">Tagliatelles au Parmigiano Reggiano</span><span class="dots"></span><span class="price">16 €</span></div><div class="desc">200g de tagliatelles fraîches, crème, parmesan affiné. <span class="badge bg-ember">+ charcuterie du moment +3€</span></div></div>
+      <div class="item"><div class="line"><span class="name">Carpaccio de bœuf</span><span class="dots"></span><span class="price">20 €</span></div><div class="desc"><span data-i18n="d_carpaccio">Servi en 2 assiettes, scamorza râpé, tartare de tomates, roquette, pesto, huile d'olive, frites.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Bruschetta truite fumée</span><span class="dots"></span><span class="price">18 €</span></div><div class="desc"><span data-i18n="d_bruschetta">Servi avec frites ou salade verte. Crème échalotte ciboulette, noisette, pickles concombre.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Salade Serr'che</span><span class="dots"></span><span class="price">16 €</span></div><div class="desc"><span data-i18n="d_salade">Salade verte, tomme de brebis, coppa, pignon, tomate, vinaigrette myrtille betterave, croutons.</span></div></div>
+
+      <div class="highlight">
+        <div class="item"><div class="line"><span class="name">Croque monsieur — Le classique</span><span class="dots"></span><span class="price">16 €</span></div><div class="desc"><span data-i18n="d_croque">Jambon cuit, comté. Servi avec frites.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESSERTS -->
+  <div id="food-desserts" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_desserts_ey">Douceurs maison</span></span>
+      <h2 class="s-title"><span data-i18n="s_desserts_t">Les Desserts</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="item"><div class="line"><span class="name">Panna cotta</span><span class="dots"></span><span class="price">7 €</span></div><div class="desc"><span data-i18n="d_pannacotta">Coulis du moment.</span></div></div>
+      <div class="item"><div class="line"><span class="name">Gaufre classique au sucre</span><span class="dots"></span><span class="price">4 €</span></div></div>
+      <div class="item"><div class="line"><span class="name">Gaufre gourmande</span><span class="dots"></span><span class="price">6 €</span></div><div class="desc">Nutella & chantilly.</div></div>
+      <div class="item"><div class="line"><span class="name">Gaufre douceur</span><span class="dots"></span><span class="price">6 €</span></div><div class="desc">Caramel beurre salé & chantilly.</div></div>
+
+      <div class="highlight" style="margin-top:24px">
+        <div class="item"><div class="line"><span class="name">La Fruitée</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc"><span data-i18n="d_fruitee">Fraise, framboise, cassis — crème fouettée, amandes, coulis de fruits rouges.</span></div></div>
+        <div class="item"><div class="line"><span class="name">La Praliné</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc"><span data-i18n="d_praline">Vanille, praliné ×2 — coulis caramel beurre salé, crème fouettée, noisettes.</span></div></div>
+        <div class="item"><div class="line"><span class="name">L'Exotique</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc"><span data-i18n="d_exotique">Passion, mangue, citron vert — crème fouettée, coulis exotique.</span></div></div>
+        <div class="item"><div class="line"><span class="name">Dame blanche</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc"><span data-i18n="d_dame">Chocolat, vanille ×2 — crème fouettée, coulis de chocolat.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLACES -->
+  <div id="food-glaces" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_glaces_ey"><span data-i18n="s_glaces_ey">Notre sélection · 15 parfums</span></span></span>
+      <h2 class="s-title"><span data-i18n="s_glaces_t">Les Glaces</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div style="text-align:center;max-width:660px;margin:0 auto 24px">
+      <p style="font-family:'Fraunces',serif;font-size:1.1rem;color:var(--snow);font-weight:600" data-i18n="glaces_selection">Notre sélection de glaces</p>
+      <p style="color:var(--lichen);font-size:.8rem;margin-top:6px" data-i18n="glaces_selection_sub">15 parfums disponibles</p>
+    </div>
+
+
+      <div class="prix-boules">
+        <div class="prix-box"><div class="nb">3 €</div><div class="lbl"><span data-i18n="boule1">1 boule</span></div></div>
+        <div class="prix-box"><div class="nb">5 €</div><div class="lbl"><span data-i18n="boule2">2 boules</span></div></div>
+        <div class="prix-box"><div class="nb">7 €</div><div class="lbl"><span data-i18n="boule3">3 boules</span></div></div>
+      </div>
+
+      <div class="parfums-grid">
+        <div class="parfum"><div class="p-dot" style="background:#F5E6C8;border:2px solid #D89B4D"></div><div><div class="p-name">Vanille</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#2C1206;border:2px solid #7B3F1A"></div><div><div class="p-name">Chocolat</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#F0F0F0;border:2px solid #C0C0C0"></div><div><div class="p-name">Stracciatella</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#C8860A;border:2px solid #8A5A00"></div><div><div class="p-name">Caramel beurre salé</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#CCFF66;border:2px solid #88CC00"></div><div><div class="p-name">Citron vert</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#D42B6A;border:2px solid #A01848"></div><div><div class="p-name">Framboise</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#F5A040;border:2px solid #C07000"></div><div><div class="p-name">Fruit de la passion</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#E8405A;border:2px solid #C0283E"></div><div><div class="p-name">Fraise</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#F5A623;border:2px solid #C07800"></div><div><div class="p-name">Mangue</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#A8D840;border:2px solid #70A010"></div><div><div class="p-name">Melon</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#2A8C4A;border:2px solid #186030"></div><div><div class="p-name">Menthe chocolat</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#FF4444;border:2px solid #CC0000"></div><div><div class="p-name">Smarties</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#A0C040;border:2px solid #689000"></div><div><div class="p-name">Pistache</div><div class="p-type">Crème</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#3B1D5C;border:2px solid #6B3DA0"></div><div><div class="p-name">Cassis</div><div class="p-type">Sorbet</div></div></div>
+        <div class="parfum"><div class="p-dot" style="background:#C8860A;border:2px solid #906000"></div><div><div class="p-name">Praliné</div><div class="p-type">Crème</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOÛTERS -->
+  <div id="food-gouters" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_gouters_ey">À partager après l'effort</span></span>
+      <h2 class="s-title"><span data-i18n="s_gouters_t">Les Goûters</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="item" style="text-align:center;max-width:500px;margin:0 auto 28px">
+        <p style="color:var(--sand);font-size:.9rem">Mini churros ou mini beignets — <strong style="color:var(--snow)">3 toppings au choix</strong></p>
+        <p style="color:var(--lichen);font-size:.8rem;margin-top:4px"><span data-i18n="gouters_toppings">Coulis de fruits · Nutella · Caramel · Sucre · Chantilly · Noisette · Amande · Spéculoos</span></p>
+      </div>
+
+      <div class="highlight">
+        <div class="item"><div class="line"><span class="name">Barquette 100g</span><span class="dots"></span><span class="price">8 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Barquette 200g</span><span class="dots"></span><span class="price">15 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Barquette 300g</span><span class="dots"></span><span class="price">22 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Barquette 400g</span><span class="dots"></span><span class="price">29 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Barquette 500g</span><span class="dots"></span><span class="price">35 €</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════ CARTE BOISSONS -->
+<div id="page-drink" class="page">
+  <div class="inner-tabs-wrap">
+    <div class="inner-tabs">
+      <button class="itab active" onclick="showTab('bieres',this,'drink')"><span data-i18n="tab_bieres">Bières</span></button>
+      <button class="itab" onclick="showTab('softs',this,'drink')"><span data-i18n="tab_softs">Softs</span></button>
+      <button class="itab" onclick="showTab('cocktails',this,'drink')"><span data-i18n="tab_cocktails">Cocktails</span></button>
+      <button class="itab" onclick="showTab('vins',this,'drink')"><span data-i18n="tab_vins">Vins</span></button>
+      <button class="itab" onclick="showTab('spiritueux',this,'drink')"><span data-i18n="tab_spiritueux"><span data-i18n="s_spirit_t">Spiritueux</span></span></button>
+      <button class="itab" onclick="showTab('distillerie',this,'drink')"><span data-i18n="tab_d4f">4 Frères</span></button>
+    </div>
+  </div>
+
+  <!-- BIÈRES -->
+  <div id="drink-bieres" class="inner-section active">
+    <div class="section-inner">
+      <span class="s-eyebrow">Pression & bouteilles</span>
+      <h2 class="s-title"><span data-i18n="s_bieres_t">Les Bières</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <p style="text-align:center;color:var(--lichen);font-size:.78rem;margin-bottom:20px"><span data-i18n="pression_label">Pression 25cl / 50cl / 150cl</span></p>
+      <div class="biere-grid">
+        <div class="biere-card"><div class="biere-name">La Dahu Blonde</div><div class="biere-deg">5,2°</div><div class="biere-prix"><span class="biere-p">4€ / 8€ / 22€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Blanche de Bruxelles Rosée</div><div class="biere-deg">4,5°</div><div class="biere-prix"><span class="biere-p">4,50€ / 9€ / 25€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Tourmente I.P.A.</div><div class="biere-deg">4,5°</div><div class="biere-prix"><span class="biere-p">5€ / 10€ / 28€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Chouffe Blonde</div><div class="biere-deg">8°</div><div class="biere-prix"><span class="biere-p">5,50€ / 11€ / 31€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Bière du moment</div><div class="biere-deg"></div><div class="biere-prix"><span class="biere-p">Voir ardoise</span></div></div>
+      </div>
+
+      <p style="text-align:center;color:var(--lichen);font-size:.78rem;margin:28px 0 16px"><span data-i18n="bouteilles_label">Bouteilles 33cl</span></p>
+      <div class="biere-grid">
+        <div class="biere-card"><div class="biere-name">Chouffe Cherry</div><div class="biere-deg">8°</div><div class="biere-prix"><span class="biere-p">8€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Vedett I.P.A.</div><div class="biere-deg">6°</div><div class="biere-prix"><span class="biere-p">8€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Liefmans Fruitesse</div><div class="biere-deg">3,8° · 25cl</div><div class="biere-prix"><span class="biere-p">6€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Tourmente 05 Sans Alcool</div><div class="biere-deg">0,5°</div><div class="biere-prix"><span class="biere-p">6€</span></div></div>
+        <div class="biere-card"><div class="biere-name">Cidre Ti-Lô Brut Bio</div><div class="biere-deg">4,5°</div><div class="biere-prix"><span class="biere-p">8€</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOFTS -->
+  <div id="drink-softs" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_softs_ey">Sans alcool</span></span>
+      <h2 class="s-title">Softs & Chauds</h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div style="max-width:660px;margin:0 auto">
+        <p style="font-family:'Fraunces',serif;color:var(--ember);font-size:1rem;margin-bottom:12px"><span data-i18n="soft_frais">Boissons fraîches</span></p>
+        <div class="item"><div class="line"><span class="name">Coca-Cola, Coca-Cola Sans Sucres 33cl</span><span class="dots"></span><span class="price">4,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Orangina, Fuzetea Pêche 25cl</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Limonade Fine Bio 33cl</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Diabolo 25cl</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Fuzetea pêche 25cl</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Schweppes Tonic / Agrume 33cl</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Red Bull 25cl</span><span class="dots"></span><span class="price">5 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Sirop à l'eau 25cl</span><span class="dots"></span><span class="price">2,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Perrier 33cl / Litre</span><span class="dots"></span><span class="price">4,50 € / 7 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Vittel 50cl</span><span class="dots"></span><span class="price">5 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">San Pellegrino 50cl</span><span class="dots"></span><span class="price">5 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Café Glacé Maison 20cl</span><span class="dots"></span><span class="price">5 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Thé Glacé Maison 20cl</span><span class="dots"></span><span class="price">4,50 €</span></div><div class="desc">Pêche ou Framboise.</div></div>
+        <div class="item"><div class="line"><span class="name">Jus Caraïbos 25cl</span><span class="dots"></span><span class="price">4 €</span></div><div class="desc">Tomate · Pomme · Orange · Mangue · Fraise · Ananas · ACE · Abricot</div></div>
+        <div class="item"><div class="line"><span class="name">Jus pressé Orange ou Citron</span><span class="dots"></span><span class="price">6,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Tonic Hysope Bio 20cl</span><span class="dots"></span><span class="price">5 €</span></div><div class="desc">Ginger beer · Ginger Ale · Tonic classique · Fleur de sureau · Pamplemousse · Citron · Concombre</div></div>
+      </div>
+
+      <div style="max-width:660px;margin:28px auto 0">
+        <p style="font-family:'Fraunces',serif;color:var(--ember);font-size:1rem;margin-bottom:12px"><span data-i18n="soft_cocktail">Cocktails sans alcool</span></p>
+        <div class="item"><div class="line"><span class="name">Exotique</span><span class="dots"></span><span class="price">7 €</span></div><div class="desc">Jus de mangue, sirop de passion, citron vert, Perrier.</div></div>
+        <div class="item"><div class="line"><span class="name">Strawberry Mule</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc">Jus d'orange, purée de fraise, ginger beer, menthe.</div></div>
+        <div class="item"><div class="line"><span class="name">Virgin Mojito</span><span class="dots"></span><span class="price">8 €</span></div><div class="desc">Jus de pomme, menthe fraîche, sucre de canne, eau pétillante, citron.</div></div>
+        <div class="item"><div class="line"><span class="name">Virgin Piña Colada</span><span class="dots"></span><span class="price">8 €</span></div><div class="desc">Jus d'ananas, purée de coco, citron vert, sirop de sucre.</div></div>
+      </div>
+
+      <div style="max-width:660px;margin:28px auto 0">
+        <p style="font-family:'Fraunces',serif;color:var(--ember);font-size:1rem;margin-bottom:12px"><span data-i18n="soft_chaud">Boissons chaudes</span></p>
+        <div class="item"><div class="line"><span class="name">Café · Allongé · Déca</span><span class="dots"></span><span class="price">2 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Noisette</span><span class="dots"></span><span class="price">2,20 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Double Expresso</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Grand Crème</span><span class="dots"></span><span class="price">3,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Cappuccino</span><span class="dots"></span><span class="price">4,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Chocolat Chaud</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Chocolat Viennois</span><span class="dots"></span><span class="price">5 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Chocolat Viennois Cookies</span><span class="dots"></span><span class="price">5,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Irish Coffee</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Irish whiskey, sucre, café, crème.</div></div>
+        <div class="item"><div class="line"><span class="name">Italian Coffee</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Amaretto, sucre, café, crème.</div></div>
+        <div class="item"><div class="line"><span class="name">Thé · Infusion</span><span class="dots"></span><span class="price">4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Chocolat Mélèze</span><span class="dots"></span><span class="price">6 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Grog · Vin chaud</span><span class="dots"></span><span class="price">5 € / 4 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Chai latte</span><span class="dots"></span><span class="price">5 €</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COCKTAILS -->
+  <div id="drink-cocktails" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow">Shakers & créations</span>
+      <h2 class="s-title"><span data-i18n="s_cocktails_t">Les Cocktails</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="cocktail-section">
+        <h3><span data-i18n="classiques">Les Classiques</span></h3>
+        <div class="item"><div class="line"><span class="name">Mojito</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Rhum Havana + Captain Morgan, Perrier, sucre de canne, citron vert, menthe.</div></div>
+        <div class="item"><div class="line"><span class="name">Caïpirinha</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc">Cachaça, sucre blanc, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Ti' Punch</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc">Rhum blanc, sucre de canne, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Cuba Libre</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc">Rhum Captain Morgan, Coca-Cola, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Tequila Sunrise</span><span class="dots"></span><span class="price">9 €</span></div><div class="desc">Tequila, jus d'orange, sirop de grenadine.</div></div>
+        <div class="item"><div class="line"><span class="name">Moscow Mule</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Vodka, ginger beer, sucre de canne, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">London Mule</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Gin, ginger beer, sucre de canne, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Morgan Mule</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Rhum Captain Morgan, ginger beer, sucre de canne, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Piña Colada</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Rhum Havana 3 ans, jus d'ananas, purée de coco, jus de citron.</div></div>
+        <div class="item"><div class="line"><span class="name">Tropical Margarita</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Tequila, jus d'ananas, curaçao, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Chartreuse Tropicale</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Chartreuse jaune, jus d'ananas, citron vert.</div></div>
+        <div class="item"><div class="line"><span class="name">Espresso Martini</span><span class="dots"></span><span class="price">12 €</span></div><div class="desc">Vodka, café, Kahlua, sirop de sucre.</div></div>
+      </div>
+
+      <div class="cocktail-section">
+        <h3><span data-i18n="spritz">Les Spritz</span></h3>
+        <div class="item"><div class="line"><span class="name">Aperol Spritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Aperol, Prosecco, Perrier, orange.</div></div>
+        <div class="item"><div class="line"><span class="name">Campari Spritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Campari, Prosecco, Perrier, orange.</div></div>
+        <div class="item"><div class="line"><span class="name">Hugo Spritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur fleur de sureau, Prosecco, menthe, Perrier.</div></div>
+        <div class="item"><div class="line"><span class="name">Lemon Spritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Limoncello, Prosecco, citron jaune, Perrier.</div></div>
+        <div class="item"><div class="line"><span class="name">Le Mélèspritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur de Mélèze, Prosecco, citron vert, Perrier. <span class="badge bg-d4f">4 Frères</span></div></div>
+        <div class="item"><div class="line"><span class="name">Le Généspritz</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur de Génépi, Prosecco, citron vert, Perrier. <span class="badge bg-d4f">4 Frères</span></div></div>
+        <div class="item"><div class="line"><span class="name">Le Spritz Napoléon</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur de mandarine Napoléon, Prosecco, Perrier.</div></div>
+      </div>
+
+      <div class="cocktail-d4f">
+        <h3><span data-i18n="creations">⭐ Créations — Distillerie des 4 Frères</span></h3>
+        <div class="item"><div class="line"><span class="name">T-Thyme</span><span class="dots"></span><span class="price">11 €</span></div><div class="desc">Liqueur de Thym, Tequila, citron vert, jus de pamplemousse.</div></div>
+        <div class="item"><div class="line"><span class="name">Le Brin</span><span class="dots"></span><span class="price">12 €</span></div><div class="desc">Liqueur de Génépi, Mezcal, sirop de framboise, Angostura, ginger beer.</div></div>
+        <div class="item"><div class="line"><span class="name">Sweet V40</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur de Verveine citronnée, sirop d'orgeat, citron vert, jus d'ananas.</div></div>
+        <div class="item"><div class="line"><span class="name">Dream Catcher</span><span class="dots"></span><span class="price">12 €</span></div><div class="desc">Liqueur de Coing, Limoncello, jus de pomme, jus de citron, Prosecco.</div></div>
+        <div class="item"><div class="line"><span class="name">L'Amante</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Liqueur de menthe, Gin Le 100, citron vert, sucre.</div></div>
+        <div class="item"><div class="line"><span class="name">Le Phoenix</span><span class="dots"></span><span class="price">12 €</span></div><div class="desc">Gin Phoenix, poivre, Tonic Hysope sureau.</div></div>
+        <div class="item"><div class="line"><span class="name">Vieux Frère</span><span class="dots"></span><span class="price">10 €</span></div><div class="desc">Gin Le 100, Liqueur de Vieux Garçon, tonic, menthe.</div></div>
+        <div class="item"><div class="line"><span class="name">Framboisine</span><span class="dots"></span><span class="price">12 €</span></div><div class="desc">Liqueur de Framboise, vodka, sirop d'orgeat, jus d'orange, champagne.</div></div>
+        <div class="item"><div class="line"><span class="name">Le Mélèzito</span><span class="dots"></span><span class="price">11 €</span></div><div class="desc">Liqueur de Mélèze, menthe, sucre de canne, citron vert, Perrier.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VINS -->
+  <div id="drink-vins" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_vins_ey">Sélection</span></span>
+      <h2 class="s-title">Vins & Champagnes</h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="vin-group">
+        <h3>🍷 Vins Rouges — 12cl / 75cl</h3>
+        <div class="item"><div class="line"><span class="name">Claudie Péguet Pinot Noir</span><span class="dots"></span><span class="price">5 € / 29 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Les Méridiennes AOP Côtes-du-Rhône</span><span class="dots"></span><span class="price">6 € / 34 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Septembre — Edouard Delaunay Pinot Noir AOC Bourgogne</span><span class="dots"></span><span class="price">55 €</span></div></div>
+      </div>
+
+      <div class="vin-group">
+        <h3>🥂 Vins Blancs — 12cl / 75cl</h3>
+        <div class="item"><div class="line"><span class="name">Claudie Péguet Viognier</span><span class="dots"></span><span class="price">5 € / 29 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Mâcon Chaintre — Domaine Paquet Chardonnay Bourgogne</span><span class="dots"></span><span class="price">6 € / 34 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Charmes IGP Côtes de Gascogne (Moelleux)</span><span class="dots"></span><span class="price">5 € / 29 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Septembre — Edouard Delaunay Chardonnay AOC Bourgogne</span><span class="dots"></span><span class="price">55 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Pouilly Fuissé vieilles vignes 2021</span><span class="dots"></span><span class="price">150 €<span class="per"> / 150cl</span></span></div></div>
+      </div>
+
+      <div class="vin-group">
+        <h3>🌹 Vins Rosés — 12cl / 75cl</h3>
+        <div class="item"><div class="line"><span class="name">Brise Marine Estandon Méditerranée IGP</span><span class="dots"></span><span class="price">5 € / 29 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Dune Gris AOP Sable de Camargue</span><span class="dots"></span><span class="price">6 € / 34 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Pamploon Colors IGP Méditerranée</span><span class="dots"></span><span class="price">36 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Pétula AOP Luberon 2022 Magnum</span><span class="dots"></span><span class="price">80 €<span class="per"> / 150cl</span></span></div></div>
+        <div class="item"><div class="line"><span class="name">Roséfine IGP Méditerranée Magnum</span><span class="dots"></span><span class="price">70 €<span class="per"> / 150cl</span></span></div></div>
+      </div>
+
+      <div class="vin-group">
+        <h3>🍾 Champagnes — 75cl</h3>
+        <div class="item"><div class="line"><span class="name">Bernard Gaucher — flûte 9cl</span><span class="dots"></span><span class="price">10 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Collet Brut</span><span class="dots"></span><span class="price">90 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Collet Blanc de Blancs 1er Cru</span><span class="dots"></span><span class="price">120 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Billecart-Salmon Brut Réserve</span><span class="dots"></span><span class="price">120 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Billecart-Salmon Brut Réserve Magnum</span><span class="dots"></span><span class="price">250 €<span class="per"> / 150cl</span></span></div></div>
+      </div>
+
+      <div class="vin-group">
+        <h3>🍸 Apéritifs & Kirs</h3>
+        <div class="item"><div class="line"><span class="name">Martini blanc/rouge 5cl</span><span class="dots"></span><span class="price">6 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Campari 5cl</span><span class="dots"></span><span class="price">6 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Pastis 51 / Ricard / Casanis 2cl</span><span class="dots"></span><span class="price">3,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Suze 5cl</span><span class="dots"></span><span class="price">6 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Vin Blanc Cassis/Mûre/Pêche 12cl</span><span class="dots"></span><span class="price">5,50 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Kir Royal Cassis/Mûre/Pêche</span><span class="dots"></span><span class="price">10 €</span></div></div>
+        <div class="item"><div class="line"><span class="name">Porto blanc/rouge 5cl</span><span class="dots"></span><span class="price">6 €</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPIRITUEUX -->
+  <div id="drink-spiritueux" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow">Sélection</span>
+      <h2 class="s-title">Spiritueux</h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+      <p style="text-align:center;color:var(--lichen);font-size:.76rem;margin-bottom:24px"><span data-i18n="supp_label">Supplément soft +1€ · Supplément Red Bull +2€</span></p>
+
+      <div style="max-width:660px;margin:0 auto">
+        <div class="vin-group">
+          <h3>🍸 Alcools — 4cl à 5cl</h3>
+          <div class="item"><div class="line"><span class="name">Chartreuse Verte 55° / Jaune 43° — 4cl</span><span class="dots"></span><span class="price">10 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Get 27 / Get 31 — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Kahlúa 20° — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Bailey's 17° — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Malibu 18° — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Amaretto 28° — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Limoncello 30° — 4cl</span><span class="dots"></span><span class="price">8 €</span></div></div>
+        </div>
+        <div class="vin-group">
+          <h3>🥃 Vodkas & Rhums — 4cl</h3>
+          <div class="item"><div class="line"><span class="name">Zubrowka Biala 37,5°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Captain Morgan 35°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Havana Club 3 ans 37,5°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Diplomatico 40° · Don Papa 40°</span><span class="dots"></span><span class="price">10 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Kraken 40° · Bumbu 40°</span><span class="dots"></span><span class="price">9 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Clément Canne Bleue 50°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+        </div>
+        <div class="vin-group">
+          <h3>🥃 Whiskies — 4cl</h3>
+          <div class="item"><div class="line"><span class="name">Grant's 40°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Jameson 40°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Monkey Shoulder 40°</span><span class="dots"></span><span class="price">9 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Jack Daniel's 40° · Honey · Fire</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Akashi Meisei 40° · Togoushi Kiwami</span><span class="dots"></span><span class="price">9 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Hwayo X Premium 41°</span><span class="dots"></span><span class="price">10 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Lagavulin 40°</span><span class="dots"></span><span class="price">10 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Chivas Regal 40°</span><span class="dots"></span><span class="price">9 €</span></div></div>
+        </div>
+        <div class="vin-group">
+          <h3>🌵 Tequila · Mezcal · Cognac · Calvados · Armagnac</h3>
+          <div class="item"><div class="line"><span class="name">Camino Real Blanco 35°</span><span class="dots"></span><span class="price">7 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Mezcal San Cosme 40°</span><span class="dots"></span><span class="price">7 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Planat VS Bio Cognac 40°</span><span class="dots"></span><span class="price">9 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Beaujour Calvados 40°</span><span class="dots"></span><span class="price">8 €</span></div></div>
+          <div class="item"><div class="line"><span class="name">Dartigalongue Bas Armagnac VSOP 40°</span><span class="dots"></span><span class="price">12 €</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISTILLERIE 4 FRÈRES -->
+  <div id="drink-distillerie" class="inner-section">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_d4f_ey">Juste à côté</span></span>
+      <h2 class="s-title"><span data-i18n="s_d4f_t">Distillerie des 4 Frères</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+
+      <div class="d4f-hero">
+        <div class="d4f-logo">
+          <svg width="64" height="64" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="48" fill="#1A2A1A" stroke="#D4913A" stroke-width="1.5"/><ellipse cx="50" cy="42" rx="18" ry="14" fill="none" stroke="#D4913A" stroke-width="2"/><path d="M50 28 L50 18 Q50 12 56 10 L68 8" stroke="#D4913A" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M68 8 Q78 8 78 18 L78 28 Q78 34 72 36 L62 40" stroke="#D4913A" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M32 42 L32 62 Q32 68 38 68 L62 68 Q68 68 68 62 L68 42" stroke="#D4913A" stroke-width="2" fill="none"/><path d="M42 68 L42 80 L58 80 L58 68" stroke="#D4913A" stroke-width="1.5" fill="none"/><text x="50" y="92" text-anchor="middle" font-size="7" fill="#D4913A" font-family="Arial" font-weight="bold" letter-spacing="1">4 FRÈRES</text></svg>
+          <div class="d4f-title">Distillerie des 4 Frères</div>
+          <div class="d4f-sub">Serre-Chevalier · Hautes-Alpes</div>
+          <a href="https://www.distilleriedes4freres.com" target="_blank" class="d4f-link"><span data-i18n="d4f_visiter">Visiter leur site ↗</span></a>
+        </div>
+        <div class="d4f-story">
+          <span data-i18n-html="d4f_story">Un alambic centenaire, quatre frères, mille arômes. Distillerie artisanale au cœur de Serre-Chevalier. La boutique officielle est juste à côté.</span>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--lichen);font-size:.76rem;margin-bottom:18px"><span data-i18n="verre_label">Sur place 2cl / 4cl</span></p>
+      <div class="liqueurs-grid">
+        <div class="liqueur-card" style="border-left:3px solid #D4913A">
+          <div class="liq-name">Mielèze <span style="font-size:.56rem;background:#B5722A;color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;vertical-align:middle" data-i18n="liq_new">NOUVEAU</span></div>
+          <div class="liq-deg" data-i18n="liq_mieleze_deg">Liqueur mélèze & miel de montagne · 35°</div>
+          <div class="liq-desc" data-i18n="liq_mieleze_desc">Douceur enveloppante du miel de montagne, fraîcheur résineuse du mélèze. Unique.</div>
+          <div class="liq-prix"><span class="liq-p">7€ / 14€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 49€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Gin Le 100</div>
+          <div class="liq-deg" data-i18n="liq_gin100_deg">Gin artisanal Serre-Chevalier · 37,5°</div>
+          <div class="liq-desc" data-i18n="liq_gin100_desc">Premier gin distillé à Serre-Chevalier. Genièvre, épices poivrées, notes d'agrumes.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 39€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Gin Le Phoenix</div>
+          <div class="liq-deg" data-i18n="liq_phoenix_deg">Gin artisanal Serre-Chevalier · 40°</div>
+          <div class="liq-desc" data-i18n="liq_phoenix_desc">Caractère intense, eau-de-vie de mélèze, boisé et puissant. Le gin de montagne.</div>
+          <div class="liq-prix"><span class="liq-p">5€ / 10€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 47€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">L'Amante</div>
+          <div class="liq-deg" data-i18n="liq_amante_deg">Liqueur de menthe sauvage · 25°</div>
+          <div class="liq-desc" data-i18n="liq_amante_desc">Assemblage de menthes sauvages des Hautes-Alpes. Fraîche, douce, intensément aromatique.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 31€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">La Manne</div>
+          <div class="liq-deg" data-i18n="liq_manne_deg">Liqueur de mélèze des Hautes-Alpes · 35°</div>
+          <div class="liq-desc" data-i18n="liq_manne_desc">Bourgeons de mélèze cueillis à la main. Notes boisées, résineuses, fraîches.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 24€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Le Brin</div>
+          <div class="liq-deg" data-i18n="liq_brin_deg">Liqueur de génépi · 35°</div>
+          <div class="liq-desc" data-i18n="liq_brin_desc">100% Artemisia Mutellina. La quintessence du génépi des Hautes-Alpes, floral et herbacé.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 24€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">V40</div>
+          <div class="liq-deg" data-i18n="liq_v40_deg">Liqueur de verveine citronnée · 40°</div>
+          <div class="liq-desc" data-i18n="liq_v40_desc">Digéstif frais et élégant, aromatique et citronné. À déguster bien frais ou en tonic.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 24€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">L'Ysopé</div>
+          <div class="liq-deg" data-i18n="liq_ysope_deg">Liqueur d'hysope des Hautes-Alpes · 35°</div>
+          <div class="liq-desc" data-i18n="liq_ysope_desc">100% Hyssopus officinalis. Végétale, florale, légèrement menthée. En apéritif ou kir.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 24€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Le Thymus</div>
+          <div class="liq-deg" data-i18n="liq_thymus_deg">Liqueur de thym sauvage · 18°</div>
+          <div class="liq-desc" data-i18n="liq_thymus_desc">Macération de plants fleuris frais. Douce, intensément aromatique, végétale et parfumée.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 27€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">La Framboisine</div>
+          <div class="liq-deg" data-i18n="liq_framb_deg">Liqueur de framboise · 18°</div>
+          <div class="liq-desc" data-i18n="liq_framb_desc">100% framboises fraîches. Douce, peu sucrée, grande finesse. En kir champagne ou sur glace.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 27€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Le Vieux Garçon</div>
+          <div class="liq-deg" data-i18n="liq_vg_deg">Liqueur de 7 fruits rouges · 18°</div>
+          <div class="liq-desc" data-i18n="liq_vg_desc">Assemblage de 7 fruits rouges macérés longue durée. Ronde, fruitée, pleine de caractère.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 19€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Le Coin Coin</div>
+          <div class="liq-deg" data-i18n="liq_coin_deg">Liqueur de coing · 18°</div>
+          <div class="liq-desc" data-i18n="liq_coin_desc">100% coings du coin. Fruité, velouté, arômes de confiture. Singulière et pleine de charme.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 19€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">Le Dahu</div>
+          <div class="liq-deg" data-i18n="liq_dahu_deg">Liqueur artisanale · 25°</div>
+          <div class="liq-desc" data-i18n="liq_dahu_desc">La liqueur de la légende alpine. Arômes délicats, recette maison de la distillerie.</div>
+          <div class="liq-prix"><span class="liq-p">4€ / 8€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">1921 Poire Williams</div>
+          <div class="liq-deg" data-i18n="liq_poire_deg">Eau de vie · Verger d'altitude · 42°</div>
+          <div class="liq-desc" data-i18n="liq_poire_desc">Poires Williams du verger d'altitude, distillées à l'alambic de 1921. Pure et fruitée.</div>
+          <div class="liq-prix"><span class="liq-p">5€ / 10€</span><span style="margin-left:8px;font-size:.7rem;color:var(--sand)">Bouteille 33€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">La Marmote</div>
+          <div class="liq-deg" data-i18n="liq_marmote_deg">Eau de vie de prune Brigantine · 42°</div>
+          <div class="liq-desc" data-i18n="liq_marmote_desc">Prune endémique du Briançonnais, distillée artisanalement. Rare et authentique.</div>
+          <div class="liq-prix"><span class="liq-p">5€ / 10€</span></div>
+        </div>
+        <div class="liqueur-card">
+          <div class="liq-name">La Prune</div>
+          <div class="liq-deg" data-i18n="liq_prune_deg">Eau de vie de prunes · 42°</div>
+          <div class="liq-desc" data-i18n="liq_prune_desc">Prunes des jardins et sauvages, distillation artisanale. Franche et aromatique.</div>
+          <div class="liq-prix"><span class="liq-p">5€ / 10€</span></div>
+        </div>
+      </div>
+
+      <div class="boutique-banner">
+        <strong><span data-i18n="boutique_title">🥃 Boutique officielle juste à côté</span></strong>
+        <p><span data-i18n="boutique_text">Dégustation gratuite · Vente de toutes les bouteilles · Produits locaux des Hautes-Alpes</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ INFOS -->
+<div id="page-infos" class="page">
+  <div style="padding:60px 24px">
+    <div class="section-inner">
+      <span class="s-eyebrow"><span data-i18n="s_infos_ey">Nous trouver</span></span>
+      <h2 class="s-title"><span data-i18n="s_infos_t">Infos pratiques</span></h2>
+      <div class="rule"><svg width="11" height="11" viewBox="0 0 16 16"><path d="M8 1 L15 15 H1 Z" fill="#B5722A"/></svg></div>
+      <div class="infos-grid">
+        <div class="info-card">
+          <h3><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="h_title">Horaires</span></h3>
+          <div class="info-row"><strong><span data-i18n="h_tous">Tous les jours</span></strong><span><span data-i18n="h_val">8h00 — 00h00</span></span></div>
+          <div class="info-row"><strong><span data-i18n="h_pdj">Petit-déjeuner</span></strong><span><span data-i18n="h_pdj_v">Dès 8h00</span></span></div>
+          <div class="info-row"><strong><span data-i18n="h_cuisine">Service continu</span></strong><span><span data-i18n="h_cuisine_v">Cuisine jusqu'à 22h30</span></span></div>
+        </div>
+        <div class="info-card">
+          <h3><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="a_title">Adresse</span></h3>
+          <div class="info-row"><strong>Bar Le Trappeur</strong><span>480 Rue du Centre</span><span>05330 Saint-Chaffrey</span><span>Serre Chevalier</span></div>
+          <a href="https://maps.google.com/?q=480+Rue+du+Centre+05330+Saint-Chaffrey" target="_blank" class="info-btn sec"><span data-i18n="maps">Ouvrir dans Maps</span></a>
+        </div>
+        <div class="info-card">
+          <h3><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Réserver</h3>
+          <div class="info-row"><strong>Téléphone & SMS</strong><span>+33 6 25 42 20 15</span></div>
+          <a href="tel:+33625422015" class="info-btn"><span data-i18n="btn_call">Appeler maintenant</span></a>
+          <a href="sms:+33625422015?body=Bonjour, je souhaite réserver une table au Trappeur." class="info-btn sec" style="margin-top:8px"><span data-i18n="btn_sms2">Envoyer un SMS</span></a>
+        </div>
+        <div class="info-card">
+          <h3><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Le Trappeur</h3>
+          <div class="info-row"><span><span data-i18n="spirit_1">🏔 Bar à tapas à Saint-Chaffrey</span></span></div>
+          <div class="info-row"><span><span data-i18n="spirit_2">🍦 Glaces artisanales Maître Artisan</span></span></div>
+          <div class="info-row"><span>🥃 Cocktails & spiritueux 4 Frères</span></div>
+          <div class="info-row"><span><span data-i18n="spirit_4">⚽ Matchs Coupe du Monde sur 2 écrans</span></span></div>
+          <div class="info-row"><span>🍕 Tapas & planches à partager</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="padding-bottom:90px">
+  <div class="foot-logo">Le Trappeur</div>
+  <div style="display:flex;gap:16px;justify-content:center;margin:10px 0">
+    <a href="https://www.facebook.com/letrappeur05/" target="_blank" style="color:var(--ember);display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      letrappeur05
+    </a>
+    <a href="https://www.instagram.com/letrappeurbar/" target="_blank" style="color:var(--ember);display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      letrappeurbar
+    </a>
+  </div>
+  <div class="foot-sub"><span data-i18n="foot_sub">Bar à tapas · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier</span></div>
+  <div style="margin-top:12px;font-size:.7rem;color:var(--sand)">Partenaire : <a href="https://www.distilleriedes4freres.com" target="_blank" style="color:var(--ember)">Distillerie des 4 Frères</a> · Spiritueux artisanaux des Hautes-Alpes</div>
+  <p class="foot-note"><span data-i18n="foot_legal">Prix nets, taxes et service compris · Fait maison, du marché à l'assiette</span></p>
+  <p class="foot-note" style="margin-top:4px;font-size:.6rem"><span data-i18n="foot_alcool">L'abus d'alcool est dangereux pour la santé, à consommer avec modération. Vente interdite aux mineurs de moins de 18 ans.</span></p>
+</footer>
+
+<div class="sticky-bar">
+  <a href="tel:+33625422015" class="scall">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span data-i18n="btn_appeler">Appeler</span>
+  </a>
+  <a href="sms:+33625422015?body=Bonjour, je souhaite réserver une table au Trappeur." class="ssms">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span data-i18n="btn_sms">SMS</span>
+  </a>
+</div>
+
+<script>
+function showPage(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+  else {
+    document.querySelectorAll('.main-tab').forEach(t => {
+      if (t.getAttribute('onclick') && t.getAttribute('onclick').includes("'" + id + "'")) t.classList.add('active');
+    });
+  }
+  window.scrollTo({top: document.querySelector('.main-tabs').offsetTop - 64, behavior: 'smooth'});
+}
+
+function showTab(id, el, page) {
+  const prefix = page + '-';
+  document.querySelectorAll('#page-' + page + ' .inner-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#page-' + page + ' .itab').forEach(t => t.classList.remove('active'));
+  document.getElementById(prefix + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+
+<script>
+const TRANSLATIONS = {"fr": {"flag": "🇫🇷", "name": "Français", "nav_carte": "La Carte", "nav_boissons": "Boissons", "nav_infos": "Infos", "nav_reserver": "Réserver", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Bar à tapas, esprit du partage", "hero_sub": "Tapas, planches, glaces artisanales des Alpes & cocktails signature de la Distillerie des 4 Frères.", "btn_appeler": "Appeler", "btn_sms": "SMS", "hero_h1": "Tous les jours · 8h – 00h", "wc_title": "⚽ Coupe du Monde 2026", "wc_sub": "Tous les matchs retransmis en direct chez nous", "wc_screens": "2 ÉCRANS GÉANTS", "tab_carte": "La Carte", "tab_boissons": "Boissons", "tab_infos": "Infos", "tab_tapas": "Tapas", "tab_plats": "Plats", "tab_desserts": "Desserts", "tab_glaces": "Glaces", "tab_gouters": "Goûters", "s_tapas_ey": "À grignoter & partager", "s_tapas_t": "Les Tapas", "s_plats_ey": "À l'ardoise", "s_plats_t": "Les Plats", "s_desserts_ey": "Douceurs maison", "s_desserts_t": "Les Desserts", "s_glaces_ey": "Notre sélection · 15 parfums", "s_glaces_t": "Les Glaces", "s_gouters_ey": "À partager après l'effort", "s_gouters_t": "Les Goûters", "gouters_desc": "Mini churros ou mini beignets — 3 toppings au choix", "gouters_toppings": "Coulis de fruits · Nutella · Caramel · Sucre · Chantilly · Noisette · Amande · Spéculoos", "artisan_name": "Notre sélection de glaces", "glaces_selection": "Notre sélection de glaces", "glaces_selection_sub": "15 parfums disponibles", "artisan_sub": "Maître Artisan Glacier", "boule1": "1 boule", "boule2": "2 boules", "boule3": "3 boules", "d_oignons": "Beignets dorés, sauce barbecue fumée.", "d_calamar": "Frits à la minute, quartier de citron.", "d_wings": "Laquées à la sauce barbecue maison.", "d_donut": "Bouchées fondantes, panure dorée.", "d_mozza": "Cœur coulant, chapelure croustillante.", "d_focaccia": "Mozzarella, jambon cru, parmesan, tartare de tomates, pesto.", "d_nachos": "Guacamole maison, ciboulette.", "d_straccia": "Stracciatella 100g, toasts grillés, huile d'olive, basilic frais.", "d_charcut": "Comté, tomme de brebis, chèvre, jambon cru, coppa, jambon blanc.", "d_maxi": "6 oignons rings, 6 chicken wings, 6 beignets de calamars, mozza sticks, frites.", "d_tagliatelles": "200g de tagliatelles fraîches, crème, parmesan affiné.", "d_tagliatelles_supp": "+ charcuterie du moment +3€", "d_carpaccio": "Servi en 2 assiettes, scamorza râpé, tartare de tomates, roquette, pesto, huile d'olive, frites.", "d_bruschetta": "Servi avec frites ou salade verte. Crème échalotte ciboulette, noisette, pickles concombre.", "d_salade": "Salade verte, tomme de brebis, coppa, pignon, tomate, vinaigrette myrtille betterave, croutons.", "d_croque": "Jambon cuit, comté. Servi avec frites.", "d_pannacotta": "Coulis du moment.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & chantilly.", "d_gauffre_d": "Caramel beurre salé & chantilly.", "d_fruitee": "Fraise, framboise, cassis — crème fouettée, amandes, coulis de fruits rouges.", "d_praline": "Vanille, praliné ×2 — coulis caramel beurre salé, crème fouettée, noisettes.", "d_exotique": "Passion, mangue, citron vert — crème fouettée, coulis exotique.", "d_dame": "Chocolat, vanille ×2 — crème fouettée, coulis de chocolat.", "tab_bieres": "Bières", "tab_softs": "Softs", "tab_cocktails": "Cocktails", "tab_vins": "Vins", "tab_spiritueux": "Spiritueux", "tab_d4f": "4 Frères", "s_bieres_ey": "Pression & bouteilles", "s_bieres_t": "Les Bières", "s_softs_ey": "Sans alcool", "s_softs_t": "Softs & Chauds", "s_cocktails_ey": "Shakers & créations", "s_cocktails_t": "Les Cocktails", "s_vins_ey": "Sélection", "s_vins_t": "Vins & Champagnes", "s_spirit_ey": "Sélection", "s_spirit_t": "Spiritueux", "s_d4f_ey": "Juste à côté", "s_d4f_t": "Distillerie des 4 Frères", "pression_label": "Pression 25cl / 50cl", "bouteilles_label": "Bouteilles 33cl", "soft_frais": "Boissons fraîches", "soft_chaud": "Boissons chaudes", "soft_cocktail": "Cocktails sans alcool", "classiques": "Les Classiques", "spritz": "Les Spritz", "creations": "⭐ Créations — Distillerie des 4 Frères", "supp_label": "Supplément soft +1€ · Supplément Red Bull +2€", "verre_label": "Sur place 2cl / 4cl", "d4f_story": "<strong>Un alambic centenaire, quatre frères, mille arômes.</strong><br><br>Distillerie artisanale au cœur de Serre-Chevalier. Fruits, plantes et baies cueillis localement à la main. Leurs spiritueux sont servis au bar en verre et cocktail, et disponibles à la vente.<br><br>La <strong>boutique officielle</strong> est juste à côté — dégustation offerte et achat de bouteilles sur place.", "d4f_visiter": "Visiter leur site ↗", "boutique_title": "🥃 Boutique officielle juste à côté", "boutique_text": "Dégustation gratuite · Vente de toutes les bouteilles · Produits locaux des Hautes-Alpes", "s_infos_ey": "Nous trouver", "s_infos_t": "Infos pratiques", "h_title": "Horaires", "h_tous": "Tous les jours", "h_val": "8h00 — 00h00", "h_pdj": "Petit-déjeuner", "h_pdj_v": "Dès 8h00", "h_cuisine": "Service continu", "h_cuisine_v": "Cuisine jusqu'à 22h30", "a_title": "Adresse", "maps": "Ouvrir dans Maps", "r_title": "Réserver", "r_tel": "Téléphone & SMS", "btn_call": "Appeler maintenant", "btn_sms2": "Envoyer un SMS", "spirit_title": "Le Trappeur", "spirit_1": "🏔 Bar à tapas à Saint-Chaffrey", "spirit_2": "🍦 Notre sélection de glaces", "spirit_3": "🥃 Cocktails & spiritueux 4 Frères", "spirit_4": "⚽ Matchs Coupe du Monde sur 2 écrans", "spirit_5": "🍕 Tapas & planches à partager", "foot_sub": "Bar à tapas · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Partenaire", "foot_legal": "Prix nets, taxes et service compris · Fait maison, du marché à l'assiette", "foot_alcool": "L'abus d'alcool est dangereux pour la santé, à consommer avec modération. Vente interdite aux mineurs de moins de 18 ans.", "sms_body": "Bonjour, je souhaite réserver une table au Trappeur.", "liq_new": "NOUVEAU", "liq_mieleze_deg": "Liqueur mélèze & miel de montagne · 35°", "liq_mieleze_desc": "Douceur enveloppante du miel de montagne, fraîcheur résineuse du mélèze. Unique.", "liq_gin100_deg": "Gin artisanal Serre-Chevalier · 37,5°", "liq_gin100_desc": "Premier gin distillé à Serre-Chevalier. Genièvre, épices poivrées, notes d'agrumes.", "liq_phoenix_deg": "Gin artisanal Serre-Chevalier · 40°", "liq_phoenix_desc": "Caractère intense, eau-de-vie de mélèze, boisé et puissant. Le gin de montagne.", "liq_amante_deg": "Liqueur de menthe sauvage · 25°", "liq_amante_desc": "Assemblage de menthes sauvages des Hautes-Alpes. Fraîche, douce, intensément aromatique.", "liq_manne_deg": "Liqueur de mélèze des Hautes-Alpes · 35°", "liq_manne_desc": "Bourgeons de mélèze cueillis à la main. Notes boisées, résineuses, fraîches.", "liq_brin_deg": "Liqueur de génépi · 35°", "liq_brin_desc": "100% Artemisia Mutellina. La quintessence du génépi des Hautes-Alpes.", "liq_v40_deg": "Liqueur de verveine citronnée · 40°", "liq_v40_desc": "Digestif frais et élégant, aromatique et citronné. À déguster bien frais ou en tonic.", "liq_ysope_deg": "Liqueur d'hysope des Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Végétale, florale, légèrement menthée. En apéritif ou kir.", "liq_thymus_deg": "Liqueur de thym sauvage · 18°", "liq_thymus_desc": "Macération de plants fleuris frais. Douce, intensément aromatique, végétale et parfumée.", "liq_framb_deg": "Liqueur de framboise · 18°", "liq_framb_desc": "100% framboises fraîches. Douce, peu sucrée, grande finesse. En kir champagne ou sur glace.", "liq_vg_deg": "Liqueur de 7 fruits rouges · 18°", "liq_vg_desc": "7 fruits rouges, macération longue durée. Ronde, fruitée, pleine de caractère.", "liq_coin_deg": "Liqueur de coing · 18°", "liq_coin_desc": "100% coings du coin. Fruité, velouté, arômes de confiture. Singulière et pleine de charme.", "liq_dahu_deg": "Liqueur artisanale · 25°", "liq_dahu_desc": "La liqueur de la légende alpine. Arômes délicats, recette maison de la distillerie.", "liq_poire_deg": "Eau de vie · Verger d'altitude · 42°", "liq_poire_desc": "Poires Williams du verger d'altitude, distillées à l'alambic de 1921. Pure et fruitée.", "liq_marmote_deg": "Eau de vie de prune Brigantine · 42°", "liq_marmote_desc": "Prune endémique du Briançonnais, distillée artisanalement. Rare et authentique.", "liq_prune_deg": "Eau de vie de prunes · 42°", "liq_prune_desc": "Prunes des jardins et sauvages, distillation artisanale. Franche et aromatique."}, "en": {"flag": "🇬🇧", "name": "English", "nav_carte": "Menu", "nav_boissons": "Drinks", "nav_infos": "Info", "nav_reserver": "Book", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Tapas bar, spirit of sharing", "hero_sub": "Tapas, sharing boards, artisan Alps ice creams & signature cocktails from the Distillerie des 4 Frères.", "btn_appeler": "Call", "btn_sms": "SMS", "hero_h1": "Every day · 8am – midnight", "wc_title": "⚽ 2026 World Cup", "wc_sub": "Every match broadcast live right here", "wc_screens": "2 GIANT SCREENS", "tab_carte": "Menu", "tab_boissons": "Drinks", "tab_infos": "Info", "tab_tapas": "Tapas", "tab_plats": "Mains", "tab_desserts": "Desserts", "tab_glaces": "Ice Creams", "tab_gouters": "Snacks", "s_tapas_ey": "To snack & share", "s_tapas_t": "Tapas", "s_plats_ey": "Today's board", "s_plats_t": "Mains", "s_desserts_ey": "Homemade sweets", "s_desserts_t": "Desserts", "s_glaces_ey": "Our selection · 15 flavours", "s_glaces_t": "Ice Creams", "s_gouters_ey": "To share after the slopes", "s_gouters_t": "Snacks", "gouters_desc": "Mini churros or mini doughnuts — 3 toppings of your choice", "gouters_toppings": "Fruit coulis · Nutella · Caramel · Sugar · Whipped cream · Hazelnut · Almond · Speculoos", "artisan_name": "Our ice cream selection", "glaces_selection": "Our ice cream selection", "glaces_selection_sub": "15 flavours available", "artisan_sub": "Master Craftsman Glacier", "boule1": "1 scoop", "boule2": "2 scoops", "boule3": "3 scoops", "d_oignons": "Golden battered rings, smoky BBQ sauce.", "d_calamar": "Fried to order, lemon wedge.", "d_wings": "Glazed in homemade BBQ sauce.", "d_donut": "Melting cheese bites, golden crumb.", "d_mozza": "Melting heart, crispy breadcrumb.", "d_focaccia": "Mozzarella, cured ham, parmesan, tomato tartare, pesto.", "d_nachos": "Homemade guacamole, chives.", "d_straccia": "100g stracciatella, grilled garlic toasts, olive oil, fresh basil.", "d_charcut": "Comté, ewe's milk tomme, goat's cheese, cured ham, coppa, cooked ham.", "d_maxi": "6 onion rings, 6 chicken wings, 6 calamari fritters, mozza sticks, fries.", "d_tagliatelles": "200g fresh tagliatelle, cream, aged parmesan.", "d_tagliatelles_supp": "+ charcuterie of the day +3€", "d_carpaccio": "Served on 2 plates, grated scamorza, tomato tartare, rocket, pesto, olive oil, fries.", "d_bruschetta": "Served with fries or green salad. Shallot cream, chives, hazelnuts, cucumber pickles.", "d_salade": "Green salad, ewe's milk tomme, coppa, pine nuts, tomato, blueberry-beetroot dressing, croutons.", "d_croque": "Cooked ham, comté. Served with fries.", "d_pannacotta": "Coulis of the moment.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & whipped cream.", "d_gauffre_d": "Salted caramel & whipped cream.", "d_fruitee": "Strawberry, raspberry, blackcurrant — whipped cream, almonds, red fruit coulis.", "d_praline": "Vanilla, praline ×2 — salted caramel coulis, whipped cream, hazelnuts.", "d_exotique": "Passion, mango, lime — whipped cream, exotic coulis.", "d_dame": "Chocolate, vanilla ×2 — whipped cream, chocolate coulis.", "tab_bieres": "Beers", "tab_softs": "Softs", "tab_cocktails": "Cocktails", "tab_vins": "Wines", "tab_spiritueux": "Spirits", "tab_d4f": "4 Frères", "s_bieres_ey": "Draught & bottles", "s_bieres_t": "Beers", "s_softs_ey": "Alcohol-free", "s_softs_t": "Softs & Hot Drinks", "s_cocktails_ey": "Shakers & creations", "s_cocktails_t": "Cocktails", "s_vins_ey": "Selection", "s_vins_t": "Wines & Champagnes", "s_spirit_ey": "Selection", "s_spirit_t": "Spirits", "s_d4f_ey": "Right next door", "s_d4f_t": "Distillerie des 4 Frères", "pression_label": "Draught 25cl / 50cl", "bouteilles_label": "Bottles 33cl", "soft_frais": "Cold drinks", "soft_chaud": "Hot drinks", "soft_cocktail": "Non-alcoholic cocktails", "classiques": "Classic Cocktails", "spritz": "Spritz", "creations": "⭐ Signature Cocktails — Distillerie des 4 Frères", "supp_label": "Soft supplement +1€ · Red Bull supplement +2€", "verre_label": "By the glass 2cl / 4cl", "d4f_story": "<strong>A century-old copper still, four brothers, a thousand aromas.</strong><br><br>Born in the heart of the French Alps, the Distillerie des 4 Frères is a true artisan distillery. Every fruit, plant and berry is hand-picked locally in the Serre-Chevalier valley, then distilled using a century-old copper still that has been part of the family since 1921.<br><br>Their spirits are served at the bar by the glass and in our signature cocktails. The <strong>official shop is right next door</strong> — free tastings and bottles available to take home.", "d4f_visiter": "Visit their website ↗", "boutique_title": "🥃 Official shop — right next door", "boutique_text": "Free tastings for all visitors · Full range of bottles to purchase · Authentic local products from the French Alps", "s_infos_ey": "Find us", "s_infos_t": "Practical info", "h_title": "Opening hours", "h_tous": "Every day", "h_val": "8:00 am — midnight", "h_pdj": "Breakfast", "h_pdj_v": "From 8:00 am", "h_cuisine": "Continuous service", "h_cuisine_v": "Kitchen until 10:30 pm", "a_title": "Address", "maps": "Open in Maps", "r_title": "Reservations", "r_tel": "Phone & SMS", "btn_call": "Call now", "btn_sms2": "Send an SMS", "spirit_title": "Le Trappeur is", "spirit_1": "🏔 Tapas bar in Saint-Chaffrey", "spirit_2": "🍦 Our ice cream selection", "spirit_3": "🥃 Cocktails & spirits from 4 Frères", "spirit_4": "⚽ World Cup matches on 2 giant screens", "spirit_5": "🍕 Tapas & sharing boards", "foot_sub": "Tapas bar · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Partner", "foot_legal": "All prices include taxes and service · Homemade, from market to plate", "foot_alcool": "Alcohol abuse is dangerous for your health, please drink responsibly. Sale prohibited to persons under 18.", "sms_body": "Hello, I would like to book a table at Le Trappeur.", "liq_new": "NEW", "liq_mieleze_deg": "Larch & mountain honey liqueur · 35°", "liq_mieleze_desc": "The enveloping sweetness of mountain honey meets the resinous freshness of larch. Truly one of a kind.", "liq_gin100_deg": "Artisan gin, Serre-Chevalier · 37.5°", "liq_gin100_desc": "The first gin distilled in Serre-Chevalier. Ripe juniper, peppery spices, fresh citrus finish.", "liq_phoenix_deg": "Artisan gin, Serre-Chevalier · 40°", "liq_phoenix_desc": "Bold character built on homemade larch eau-de-vie. Woody, intense and full of personality.", "liq_amante_deg": "Wild mint liqueur · 25°", "liq_amante_desc": "A blend of wild mints from the Hautes-Alpes mountains. Cool, sweet and intensely aromatic.", "liq_manne_deg": "Larch liqueur, Hautes-Alpes · 35°", "liq_manne_desc": "Hand-picked larch buds from the valley. Woody, resinous and refreshing — 100% local.", "liq_brin_deg": "Génépi liqueur · 35°", "liq_brin_desc": "100% Artemisia Mutellina. The essence of high-altitude génépi — floral, herbal and delicate.", "liq_v40_deg": "Lemon verbena liqueur · 40°", "liq_v40_desc": "Fresh, elegant digestif. Subtly aromatic with a bright citrus finish. Serve chilled or with tonic.", "liq_ysope_deg": "Hyssop liqueur, Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Herbal, floral, lightly minty. Perfect as an aperitif or in a kir.", "liq_thymus_deg": "Wild thyme liqueur · 18°", "liq_thymus_desc": "Maceration of fresh flowering plants. Sweet, intensely aromatic and herbal — the taste of the mountains.", "liq_framb_deg": "Raspberry liqueur · 18°", "liq_framb_desc": "100% fresh raspberries. Gently sweet, not cloying, with great finesse. Wonderful in champagne kir.", "liq_vg_deg": "7 red fruits liqueur · 18°", "liq_vg_desc": "A blend of 7 red fruits, long maceration. Round, fruity and full of character — the house classic.", "liq_coin_deg": "Quince liqueur · 18°", "liq_coin_desc": "100% local quinces. Velvety, fruity, with jam-like aromas. Distinctive and full of charm.", "liq_dahu_deg": "Artisan liqueur · 25°", "liq_dahu_desc": "Named after the legendary alpine creature. Delicate aromas, an exclusive house recipe.", "liq_poire_deg": "Pear eau de vie · Highland orchard · 42°", "liq_poire_desc": "Williams pears from the high-altitude orchard, distilled in the 1921 copper still. Pure and fruity.", "liq_marmote_deg": "Brigantine plum eau de vie · 42°", "liq_marmote_desc": "An endemic plum from the Briançon valley, artisan-distilled. Rare, authentic and unforgettable.", "liq_prune_deg": "Plum eau de vie · 42°", "liq_prune_desc": "Garden and wild plums, artisan distillation. Forthright and beautifully aromatic."}, "de": {"flag": "🇩🇪", "name": "Deutsch", "nav_carte": "Speisekarte", "nav_boissons": "Getränke", "nav_infos": "Info", "nav_reserver": "Reservieren", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Tapas-Bar, Geist des Teilens", "hero_sub": "Tapas, Sharing-Boards, handwerkliches Alpeneis & Signature-Cocktails der Destillerie des 4 Frères.", "btn_appeler": "Anrufen", "btn_sms": "SMS", "hero_h1": "Täglich · 8 – 24 Uhr", "wc_title": "⚽ WM 2026", "wc_sub": "Alle Spiele live bei uns", "wc_screens": "2 GROßLEINWÄNDE", "tab_carte": "Speisekarte", "tab_boissons": "Getränke", "tab_infos": "Info", "tab_tapas": "Tapas", "tab_plats": "Hauptgerichte", "tab_desserts": "Desserts", "tab_glaces": "Eis", "tab_gouters": "Snacks", "s_tapas_ey": "Snacken & teilen", "s_tapas_t": "Tapas", "s_plats_ey": "Die Tafel", "s_plats_t": "Hauptgerichte", "s_desserts_ey": "Hausgemachte Süßes", "s_desserts_t": "Desserts", "s_glaces_ey": "Unsere Auswahl · 15 Sorten", "s_glaces_t": "Eis", "s_gouters_ey": "Nach der Abfahrt teilen", "s_gouters_t": "Snacks", "gouters_desc": "Mini-Churros oder Mini-Krapfen — 3 Toppings nach Wahl", "gouters_toppings": "Frucht-Coulis · Nutella · Karamel · Zucker · Schlagsahne · Haselnuss · Mandel · Spekulatius", "artisan_name": "Unsere Eisauswahl", "glaces_selection": "Unsere Eisauswahl", "glaces_selection_sub": "15 Sorten verfügbar", "artisan_sub": "Meister-Eismacher", "boule1": "1 Kugel", "boule2": "2 Kugeln", "boule3": "3 Kugeln", "d_oignons": "Goldene Teigmantel-Ringe, Rauch-BBQ-Sauce.", "d_calamar": "Frisch frittiert, Zitronenspalte.", "d_wings": "In hausgemachter BBQ-Sauce glasiert.", "d_donut": "Schmelzende Käse-Häppchen, goldene Panade.", "d_mozza": "Flüssiger Kern, knusprige Panade.", "d_focaccia": "Mozzarella, Rohschinken, Parmesan, Tomaten-Tatar, Pesto.", "d_nachos": "Hausgemachtes Guacamole, Schnittlauch.", "d_straccia": "100g Stracciatella, gegrillte Knoblauch-Toasts, Olivenöl, frisches Basilikum.", "d_charcut": "Comté, Schafstomme, Ziegenkäse, Rohschinken, Coppa, gekochter Schinken.", "d_maxi": "6 Zwiebelringe, 6 Chicken Wings, 6 Calamari, Mozza Sticks, Pommes.", "d_tagliatelles": "200g frische Tagliatelle, Sahne, gereifter Parmesan.", "d_tagliatelles_supp": "+ Tagesaufschnitt +3€", "d_carpaccio": "Auf 2 Tellern, geriebene Scamorza, Tomaten-Tatar, Rucola, Pesto, Olivenöl, Pommes.", "d_bruschetta": "Mit Pommes oder grünem Salat. Schalotten-Sahne, Schnittlauch, Haselnuss, Gurken-Pickles.", "d_salade": "Grüner Salat, Schafstomme, Coppa, Pinienkerne, Tomate, Heidelbeer-Rote-Bete-Dressing, Croutons.", "d_croque": "Gekochter Schinken, Comté. Mit Pommes frites.", "d_pannacotta": "Coulis des Tages.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & Schlagsahne.", "d_gauffre_d": "Salzkaramell & Schlagsahne.", "d_fruitee": "Erdbeere, Himbeere, Johannisbeere — Schlagsahne, Mandeln, Rote-Früchte-Coulis.", "d_praline": "Vanille, Praliné ×2 — Salzkaramell-Coulis, Schlagsahne, Haselnüsse.", "d_exotique": "Maracuja, Mango, Limette — Schlagsahne, exotischer Coulis.", "d_dame": "Schokolade, Vanille ×2 — Schlagsahne, Schokoladencoulis.", "tab_bieres": "Biere", "tab_softs": "Softdrinks", "tab_cocktails": "Cocktails", "tab_vins": "Weine", "tab_spiritueux": "Spirituosen", "tab_d4f": "4 Frères", "s_bieres_ey": "Fassbier & Flaschen", "s_bieres_t": "Biere", "s_softs_ey": "Alkoholfrei", "s_softs_t": "Softdrinks & Heißgetränke", "s_cocktails_ey": "Shaker & Kreationen", "s_cocktails_t": "Cocktails", "s_vins_ey": "Auswahl", "s_vins_t": "Weine & Champagner", "s_spirit_ey": "Auswahl", "s_spirit_t": "Spirituosen", "s_d4f_ey": "Gleich nebenan", "s_d4f_t": "Destillerie des 4 Frères", "pression_label": "Fassbier 25cl / 50cl", "bouteilles_label": "Flaschen 33cl", "soft_frais": "Kaltgetränke", "soft_chaud": "Heißgetränke", "soft_cocktail": "Alkoholfreie Cocktails", "classiques": "Klassische Cocktails", "spritz": "Spritz", "creations": "⭐ Kreationen — Destillerie des 4 Frères", "supp_label": "Softdrink-Supplement +1€ · Red Bull-Supplement +2€", "verre_label": "Vor Ort 2cl / 4cl", "d4f_story": "<strong>Ein jahrhundertealter Destillierapparat, vier Brüder, tausend Aromen.</strong><br><br>Handwerkliche Destillerie im Herzen von Serre-Chevalier. Früchte, Pflanzen und Beeren werden lokal von Hand geerntet. Ihre Spirituosen werden an der Bar glasweise und in Cocktails serviert, und sind käuflich erhältlich.<br><br>Der <strong>offizielle Laden</strong> ist gleich nebenan — kostenlose Verkostung und Flaschenverkauf.", "d4f_visiter": "Website besuchen ↗", "boutique_title": "🥃 Offizieller Laden gleich nebenan", "boutique_text": "Kostenlose Verkostung · Flaschenverkauf · Lokale Produkte aus den Hautes-Alpes", "s_infos_ey": "Uns finden", "s_infos_t": "Praktische Infos", "h_title": "Öffnungszeiten", "h_tous": "Täglich", "h_val": "8:00 — 24:00 Uhr", "h_pdj": "Frühstück", "h_pdj_v": "Ab 8:00 Uhr", "h_cuisine": "Durchgehend geöffnet", "h_cuisine_v": "Küche bis 22:30 Uhr", "a_title": "Adresse", "maps": "In Maps öffnen", "r_title": "Reservierung", "r_tel": "Telefon & SMS", "btn_call": "Jetzt anrufen", "btn_sms2": "SMS senden", "spirit_title": "Le Trappeur ist", "spirit_1": "🏔 Tapas-Bar in Saint-Chaffrey", "spirit_2": "🍦 Unsere Eisauswahl", "spirit_3": "🥃 Cocktails & Spirituosen der 4 Frères", "spirit_4": "⚽ WM-Spiele auf 2 Großleinwänden", "spirit_5": "🍕 Tapas & Sharing-Boards", "foot_sub": "Tapas-Bar · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Partner", "foot_legal": "Alle Preise inkl. MwSt. und Service · Hausgemacht, vom Markt auf den Tisch", "foot_alcool": "Alkoholmissbrauch ist gesundheitsschädlich, bitte maßvoll genießen. Verkauf an unter 18-Jährige verboten.", "sms_body": "Hallo, ich möchte einen Tisch im Trappeur reservieren.", "liq_new": "NEU", "liq_mieleze_deg": "Likör Lärche & Berghonig · 35°", "liq_mieleze_desc": "Die hüllende Süße des Berghonigs trifft auf die harzige Frische der Lärche. Einzigartig.", "liq_gin100_deg": "Handwerklicher Gin, Serre-Chevalier · 37,5°", "liq_gin100_desc": "Der erste in Serre-Chevalier destillierte Gin. Reifer Wacholder, Pfefferwürze, frische Zitrusnoten.", "liq_phoenix_deg": "Handwerklicher Gin, Serre-Chevalier · 40°", "liq_phoenix_desc": "Ausgeprägter Charakter, getragen von hausgemachtem Lärchen-Destillat. Holzig, intensiv, persönlich.", "liq_amante_deg": "Wilde Minze Likör · 25°", "liq_amante_desc": "Assemblage wilder Minzen aus den Hautes-Alpes. Frisch, süß und intensiv aromatisch.", "liq_manne_deg": "Lärchenlikör, Hautes-Alpes · 35°", "liq_manne_desc": "Handgepflückte Lärchenknopsen aus dem Tal. Holzig, harzig und erfrischend — 100% lokal.", "liq_brin_deg": "Génépi Likör · 35°", "liq_brin_desc": "100% Artemisia Mutellina. Die Quintessenz des Hochalpen-Génépis — blumig, kräuterig, zart.", "liq_v40_deg": "Zitronenverbena Likör · 40°", "liq_v40_desc": "Frischer, eleganter Digestif. Subtil aromatisch mit hellem Zitrusabgang. Gekühlt oder mit Tonic.", "liq_ysope_deg": "Ysoplikör, Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Pflanzlich, blumig, leicht minzig. Als Aperitif oder im Kir.", "liq_thymus_deg": "Wilder Thymian Likör · 18°", "liq_thymus_desc": "Mazeration frischer blühender Pflanzen. Süß, intensiv aromatisch, pflanzlich und duftend.", "liq_framb_deg": "Himbeerlikör · 18°", "liq_framb_desc": "100% frische Himbeeren. Sanft süß, nicht klebrig, mit großer Finesse. Herrlich im Champagner-Kir.", "liq_vg_deg": "Likör aus 7 roten Früchten · 18°", "liq_vg_desc": "7 rote Früchte, lange Mazeration. Rund, fruchtig, charakterstark — der Hausklassiker.", "liq_coin_deg": "Quittenlikör · 18°", "liq_coin_desc": "100% lokale Quitten. Samtig, fruchtig, mit Konfitürearomen. Eigenständig und voller Charme.", "liq_dahu_deg": "Handwerklicher Likör · 25°", "liq_dahu_desc": "Benannt nach der Legende der Alpen. Zarte Aromen, ein exklusives Hausrezept der Destillerie.", "liq_poire_deg": "Birnenbrand · Höhenobstgarten · 42°", "liq_poire_desc": "Williams-Birnen aus dem Höhenobstgarten, im Kupferkessel von 1921 destilliert. Rein und fruchtig.", "liq_marmote_deg": "Brigantiner Pflaumenbrand · 42°", "liq_marmote_desc": "Endemische Pflaume aus dem Briançonnais, handwerklich destilliert. Selten, authentisch, unvergesslich.", "liq_prune_deg": "Pflaumenbrand · 42°", "liq_prune_desc": "Garten- und Wildpflaumen, handwerkliche Destillation. Direkt und wunderbar aromatisch."}, "nl": {"flag": "🇳🇱", "name": "Nederlands", "nav_carte": "Menu", "nav_boissons": "Dranken", "nav_infos": "Info", "nav_reserver": "Reserveren", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Tapasbar, geest van het delen", "hero_sub": "Tapas, sharing boards, ambachtelijk Alpenijs & signature cocktails van de Distillerie des 4 Frères.", "btn_appeler": "Bellen", "btn_sms": "SMS", "hero_h1": "Elke dag · 8u – 24u", "wc_title": "⚽ WK 2026", "wc_sub": "Alle wedstrijden live bij ons", "wc_screens": "2 GROTE SCHERMEN", "tab_carte": "Menu", "tab_boissons": "Dranken", "tab_infos": "Info", "tab_tapas": "Tapas", "tab_plats": "Hoofdgerechten", "tab_desserts": "Desserts", "tab_glaces": "IJsjes", "tab_gouters": "Snacks", "s_tapas_ey": "Snacken & delen", "s_tapas_t": "Tapas", "s_plats_ey": "Van de lei", "s_plats_t": "Hoofdgerechten", "s_desserts_ey": "Huisgemaakte zoetigheden", "s_desserts_t": "Desserts", "s_glaces_ey": "Onze selectie · 15 smaken", "s_glaces_t": "IJsjes", "s_gouters_ey": "Na de piste delen", "s_gouters_t": "Snacks", "gouters_desc": "Mini-churros of mini-beignets — 3 toppings naar keuze", "gouters_toppings": "Vruchtencoulis · Nutella · Karamel · Suiker · Slagroom · Hazelnoot · Amandel · Speculaas", "artisan_name": "Onze ijsselectie", "glaces_selection": "Onze ijsselectie", "glaces_selection_sub": "15 smaken beschikbaar", "artisan_sub": "Meester Ambachtsman IJsmaker", "boule1": "1 bol", "boule2": "2 bollen", "boule3": "3 bollen", "d_oignons": "Goudbruin beslag, rokerige BBQ-saus.", "d_calamar": "Vers gefrituurd, partje citroen.", "d_wings": "Geglazuurd met huisgemaakte BBQ-saus.", "d_donut": "Smeltende kaashapjes, gouden broodkruim.", "d_mozza": "Vloeiend hart, knapperig broodkruim.", "d_focaccia": "Mozzarella, rauwe ham, parmezaan, tomatentartaar, pesto.", "d_nachos": "Huisgemaakte guacamole, bieslook.", "d_straccia": "100g stracciatella, gegrilde knoflooktoasts, olijfolie, verse basilicum.", "d_charcut": "Comté, schapenkaas tomme, geitenkaas, rauwe ham, coppa, gekookte ham.", "d_maxi": "6 uitienringen, 6 chicken wings, 6 calamari, mozza sticks, frietjes.", "d_tagliatelles": "200g verse tagliatelle, room, gerijpte parmezaan.", "d_tagliatelles_supp": "+ charcuterie van de dag +3€", "d_carpaccio": "Op 2 borden, geraspte scamorza, tomatentartaar, rucola, pesto, olijfolie, frietjes.", "d_bruschetta": "Met frietjes of groene salade. Sjalottenroom, bieslook, hazelnoot, komkommerpickles.", "d_salade": "Groene salade, schapenkaas tomme, coppa, pijnboompitten, tomaat, bosbes-bietendressing, croutons.", "d_croque": "Gekookte ham, comté. Met frietjes.", "d_pannacotta": "Coulis van het moment.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & slagroom.", "d_gauffre_d": "Gezouten karamel & slagroom.", "d_fruitee": "Aardbei, framboos, bes — slagroom, amandelen, roodfruiten coulis.", "d_praline": "Vanille, praliné ×2 — gezouten karamelcoulis, slagroom, hazelnoten.", "d_exotique": "Passievrucht, mango, limoen — slagroom, exotische coulis.", "d_dame": "Chocolade, vanille ×2 — slagroom, chocoladecoulis.", "tab_bieres": "Bieren", "tab_softs": "Fris", "tab_cocktails": "Cocktails", "tab_vins": "Wijnen", "tab_spiritueux": "Sterke drank", "tab_d4f": "4 Frères", "s_bieres_ey": "Tap & flessen", "s_bieres_t": "Bieren", "s_softs_ey": "Alcoholvrij", "s_softs_t": "Fris & Warm", "s_cocktails_ey": "Shakers & creaties", "s_cocktails_t": "Cocktails", "s_vins_ey": "Selectie", "s_vins_t": "Wijnen & Champagnes", "s_spirit_ey": "Selectie", "s_spirit_t": "Sterke drank", "s_d4f_ey": "Vlak hiernaast", "s_d4f_t": "Distillerie des 4 Frères", "pression_label": "Tap 25cl / 50cl", "bouteilles_label": "Flessen 33cl", "soft_frais": "Koude dranken", "soft_chaud": "Warme dranken", "soft_cocktail": "Alcoholvrije cocktails", "classiques": "Klassieke cocktails", "spritz": "Spritz", "creations": "⭐ Creaties — Distillerie des 4 Frères", "supp_label": "Frisdranksupplement +1€ · Red Bull supplement +2€", "verre_label": "Ter plaatse 2cl / 4cl", "d4f_story": "<strong>Een eeuwenoude destilleerketel, vier broers, duizend aroma's.</strong><br><br>Ambachtelijke distilleerderij in het hart van Serre-Chevalier. Fruit, planten en bessen lokaal met de hand geplukt. Hun spirits worden aan de bar per glas en in cocktails geserveerd, en zijn te koop.<br><br>De <strong>officiële winkel</strong> is vlak hiernaast — gratis proeverij en flessen te koop.", "d4f_visiter": "Bezoek hun website ↗", "boutique_title": "🥃 Officiële winkel vlak hiernaast", "boutique_text": "Gratis proeverij · Flessen te koop · Lokale producten uit de Hautes-Alpes", "s_infos_ey": "Ons vinden", "s_infos_t": "Praktische info", "h_title": "Openingstijden", "h_tous": "Elke dag", "h_val": "8:00 — 24:00", "h_pdj": "Ontbijt", "h_pdj_v": "Vanaf 8:00", "h_cuisine": "Doorlopende service", "h_cuisine_v": "Keuken tot 22:30", "a_title": "Adres", "maps": "Openen in Maps", "r_title": "Reserveren", "r_tel": "Telefoon & SMS", "btn_call": "Nu bellen", "btn_sms2": "SMS sturen", "spirit_title": "Le Trappeur is", "spirit_1": "🏔 Tapasbar in Saint-Chaffrey", "spirit_2": "🍦 Onze ijsselectie", "spirit_3": "🥃 Cocktails & spirits van 4 Frères", "spirit_4": "⚽ WK-wedstrijden op 2 grote schermen", "spirit_5": "🍕 Tapas & sharing boards", "foot_sub": "Tapasbar · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Partner", "foot_legal": "Alle prijzen inclusief belasting en bediening · Huisgemaakt, van markt tot bord", "foot_alcool": "Alcoholmisbruik is gevaarlijk voor uw gezondheid, drink met mate. Verkoop verboden aan personen onder de 18 jaar.", "sms_body": "Hallo, ik wil graag een tafel reserveren bij Le Trappeur.", "liq_new": "NIEUW", "liq_mieleze_deg": "Lariks & berghoning likeur · 35°", "liq_mieleze_desc": "De omhullende zoetheid van berghoning ontmoet de harsige frisheid van lariks. Werkelijk uniek.", "liq_gin100_deg": "Ambachtelijke gin, Serre-Chevalier · 37,5°", "liq_gin100_desc": "De eerste gin gedistilleerd in Serre-Chevalier. Rijpe jeneverbes, peperige kruiden, frisse citrus.", "liq_phoenix_deg": "Ambachtelijke gin, Serre-Chevalier · 40°", "liq_phoenix_desc": "Krachtig karakter gedragen door huisgemaakte lariks eau-de-vie. Houtig, intens en persoonlijk.", "liq_amante_deg": "Wilde munt likeur · 25°", "liq_amante_desc": "Een blend van wilde munten uit de Hautes-Alpes. Fris, zoet en intens aromatisch.", "liq_manne_deg": "Lariks likeur, Hautes-Alpes · 35°", "liq_manne_desc": "Met de hand geplukte lariksknoppen uit de vallei. Houtig, harsig en verfrissend — 100% lokaal.", "liq_brin_deg": "Génépi likeur · 35°", "liq_brin_desc": "100% Artemisia Mutellina. De quintessens van hooggebergte génépi — bloemig, kruidig en delicaat.", "liq_v40_deg": "Citroenverbena likeur · 40°", "liq_v40_desc": "Frisse, elegante digestief. Subtiel aromatisch met een heldere citrusafdronk. Koud of met tonic.", "liq_ysope_deg": "Hysop likeur, Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Kruidig, bloemig, licht muntachtig. Als aperitief of in een kir.", "liq_thymus_deg": "Wilde tijm likeur · 18°", "liq_thymus_desc": "Maceratie van verse bloeiende planten. Zoet, intens aromatisch, kruidig en geurig.", "liq_framb_deg": "Framboos likeur · 18°", "liq_framb_desc": "100% verse frambozen. Zacht zoet, niet kleverig, met grote finesse. Heerlijk in champagne kir.", "liq_vg_deg": "Likeur van 7 rode vruchten · 18°", "liq_vg_desc": "7 rode vruchten, lange maceratie. Rond, fruitig, vol karakter — de huisklassieker.", "liq_coin_deg": "Kweepeer likeur · 18°", "liq_coin_desc": "100% lokale kweperen. Fluweelzacht, fruitig, met confituurarома's. Eigenzinnig en vol charme.", "liq_dahu_deg": "Ambachtelijke likeur · 25°", "liq_dahu_desc": "Vernoemd naar de alpenlegende. Delicate aroma's, een exclusief huisrecept van de distilleerderij.", "liq_poire_deg": "Peren eau de vie · Hooggelegen boomgaard · 42°", "liq_poire_desc": "Williams peren uit de hooggelegen boomgaard, gedistilleerd in de koperen ketel van 1921. Puur en fruitig.", "liq_marmote_deg": "Brigantijnse pruimen eau de vie · 42°", "liq_marmote_desc": "Endemische pruim uit de Briançon-vallei, ambachtelijk gedistilleerd. Zeldzaam en authentiek.", "liq_prune_deg": "Pruimen eau de vie · 42°", "liq_prune_desc": "Tuin- en wilde pruimen, ambachtelijke distillatie. Rechtdoorzee en prachtig aromatisch."}, "it": {"flag": "🇮🇹", "name": "Italiano", "nav_carte": "Menu", "nav_boissons": "Bevande", "nav_infos": "Info", "nav_reserver": "Prenotare", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Bar tapas, spirito della condivisione", "hero_sub": "Tapas, taglieri da condividere, gelati artigianali delle Alpi & cocktail signature della Distillerie des 4 Frères.", "btn_appeler": "Chiama", "btn_sms": "SMS", "hero_h1": "Tutti i giorni · 8h – 00h", "wc_title": "⚽ Mondiali 2026", "wc_sub": "Tutte le partite trasmesse in diretta da noi", "wc_screens": "2 MAXISCHERMI", "tab_carte": "Menu", "tab_boissons": "Bevande", "tab_infos": "Info", "tab_tapas": "Tapas", "tab_plats": "Piatti", "tab_desserts": "Dessert", "tab_glaces": "Gelati", "tab_gouters": "Merende", "s_tapas_ey": "Snack & condivisione", "s_tapas_t": "Tapas", "s_plats_ey": "Alla lavagna", "s_plats_t": "Piatti", "s_desserts_ey": "Dolci fatti in casa", "s_desserts_t": "Dessert", "s_glaces_ey": "La nostra selezione · 15 gusti", "s_glaces_t": "Gelati", "s_gouters_ey": "Da condividere dopo le piste", "s_gouters_t": "Merende", "gouters_desc": "Mini churros o mini bomboloni — 3 topping a scelta", "gouters_toppings": "Coulis di frutta · Nutella · Caramello · Zucchero · Panna · Nocciola · Mandorla · Speculoos", "artisan_name": "La nostra selezione di gelati", "glaces_selection": "La nostra selezione di gelati", "glaces_selection_sub": "15 gusti disponibili", "artisan_sub": "Maestro Artigiano Gelatiere", "boule1": "1 pallina", "boule2": "2 palline", "boule3": "3 palline", "d_oignons": "Anelli dorati in pastella, salsa BBQ affumicata.", "d_calamar": "Fritti al momento, spicchio di limone.", "d_wings": "Glassate con salsa BBQ casalinga.", "d_donut": "Bocconi fondenti al formaggio, panatura dorata.", "d_mozza": "Cuore filante, panatura croccante.", "d_focaccia": "Mozzarella, prosciutto crudo, parmigiano, tartare di pomodori, pesto.", "d_nachos": "Guacamole casalingo, erba cipollina.", "d_straccia": "100g stracciatella, toast all'aglio grigliati, olio d'oliva, basilico fresco.", "d_charcut": "Comté, tomme di pecora, caprino, prosciutto crudo, coppa, prosciutto cotto.", "d_maxi": "6 anelli di cipolla, 6 chicken wings, 6 calamari, mozza sticks, patatine.", "d_tagliatelles": "200g tagliatelle fresche, panna, parmigiano stagionato.", "d_tagliatelles_supp": "+ charcuterie del giorno +3€", "d_carpaccio": "Servito su 2 piatti, scamorza grattugiata, tartare di pomodori, rucola, pesto, olio d'oliva, patatine.", "d_bruschetta": "Con patatine o insalata verde. Crema di scalogno, erba cipollina, nocciole, pickles di cetriolo.", "d_salade": "Insalata verde, tomme di pecora, coppa, pinoli, pomodoro, vinaigrette mirtillo-barbabietola, crostini.", "d_croque": "Prosciutto cotto, comté. Con patatine fritte.", "d_pannacotta": "Coulis del momento.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & panna montata.", "d_gauffre_d": "Caramello salato & panna montata.", "d_fruitee": "Fragola, lampone, ribes — panna montata, mandorle, coulis di frutti rossi.", "d_praline": "Vaniglia, pralinato ×2 — coulis caramello salato, panna montata, nocciole.", "d_exotique": "Passion, mango, lime — panna montata, coulis esotico.", "d_dame": "Cioccolato, vaniglia ×2 — panna montata, coulis di cioccolato.", "tab_bieres": "Birre", "tab_softs": "Analcolici", "tab_cocktails": "Cocktail", "tab_vins": "Vini", "tab_spiritueux": "Distillati", "tab_d4f": "4 Frères", "s_bieres_ey": "Alla spina & bottiglie", "s_bieres_t": "Birre", "s_softs_ey": "Analcolico", "s_softs_t": "Analcolici & Caldi", "s_cocktails_ey": "Shaker & creazioni", "s_cocktails_t": "Cocktail", "s_vins_ey": "Selezione", "s_vins_t": "Vini & Champagne", "s_spirit_ey": "Selezione", "s_spirit_t": "Distillati", "s_d4f_ey": "Proprio accanto", "s_d4f_t": "Distillerie des 4 Frères", "pression_label": "Alla spina 25cl / 50cl", "bouteilles_label": "Bottiglie 33cl", "soft_frais": "Bevande fredde", "soft_chaud": "Bevande calde", "soft_cocktail": "Cocktail analcolici", "classiques": "Cocktail Classici", "spritz": "Spritz", "creations": "⭐ Creazioni — Distillerie des 4 Frères", "supp_label": "Supplemento analcolico +1€ · Supplemento Red Bull +2€", "verre_label": "Sul posto 2cl / 4cl", "d4f_story": "<strong>Un alambicco centenario, quattro fratelli, mille aromi.</strong><br><br>Distilleria artigianale nel cuore di Serre-Chevalier. Frutti, piante e bacche raccolti localmente a mano. I loro spirits sono serviti al bar al calice e in cocktail, e disponibili all'acquisto.<br><br>Il <strong>negozio ufficiale</strong> è proprio accanto — degustazione gratuita e bottiglie in vendita.", "d4f_visiter": "Visita il loro sito ↗", "boutique_title": "🥃 Negozio ufficiale proprio accanto", "boutique_text": "Degustazione gratuita · Bottiglie in vendita · Prodotti locali delle Hautes-Alpes", "s_infos_ey": "Trovarci", "s_infos_t": "Informazioni pratiche", "h_title": "Orari", "h_tous": "Tutti i giorni", "h_val": "8:00 — 00:00", "h_pdj": "Colazione", "h_pdj_v": "Dalle 8:00", "h_cuisine": "Servizio continuo", "h_cuisine_v": "Cucina fino alle 22:30", "a_title": "Indirizzo", "maps": "Apri in Maps", "r_title": "Prenotazioni", "r_tel": "Telefono & SMS", "btn_call": "Chiama ora", "btn_sms2": "Invia un SMS", "spirit_title": "Le Trappeur è", "spirit_1": "🏔 Bar tapas a Saint-Chaffrey", "spirit_2": "🍦 La nostra selezione di gelati", "spirit_3": "🥃 Cocktail & spirits dei 4 Frères", "spirit_4": "⚽ Mondiali su 2 maxischermi", "spirit_5": "🍕 Tapas & taglieri da condividere", "foot_sub": "Bar tapas · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Partner", "foot_legal": "Prezzi netti, tasse e servizio inclusi · Fatto in casa, dal mercato al piatto", "foot_alcool": "L'abuso di alcol è pericoloso per la salute, consumare con moderazione. Vendita vietata ai minori di 18 anni.", "sms_body": "Buongiorno, vorrei prenotare un tavolo al Trappeur.", "liq_new": "NOVITÀ", "liq_mieleze_deg": "Liquore larice & miele di montagna · 35°", "liq_mieleze_desc": "La dolcezza avvolgente del miele di montagna incontra la freschezza resinosa del larice. Unico.", "liq_gin100_deg": "Gin artigianale, Serre-Chevalier · 37,5°", "liq_gin100_desc": "Il primo gin distillato a Serre-Chevalier. Ginepro maturo, spezie pepate, fresco finale agrumato.", "liq_phoenix_deg": "Gin artigianale, Serre-Chevalier · 40°", "liq_phoenix_desc": "Carattere deciso sostenuto da acquavite di larice casalinga. Legnoso, intenso e personale.", "liq_amante_deg": "Liquore di menta selvatica · 25°", "liq_amante_desc": "Un assemblaggio di mente selvatiche delle Hautes-Alpes. Fresco, dolce e intensamente aromatico.", "liq_manne_deg": "Liquore di larice, Hautes-Alpes · 35°", "liq_manne_desc": "Gemme di larice raccolte a mano dalla vallata. Legnoso, resinoso e rinfrescante — 100% locale.", "liq_brin_deg": "Liquore di génépi · 35°", "liq_brin_desc": "100% Artemisia Mutellina. La quintessenza del génépi d'alta quota — floreale, erbaceo e delicato.", "liq_v40_deg": "Liquore di verbena limoncina · 40°", "liq_v40_desc": "Digestivo fresco ed elegante. Sottilmente aromatico con finale agrumato brillante. Freddo o con tonic.", "liq_ysope_deg": "Liquore di issopo, Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Vegetale, floreale, leggermente mentato. Come aperitivo o nel kir.", "liq_thymus_deg": "Liquore di timo selvatico · 18°", "liq_thymus_desc": "Macerazione di piante fiorite fresche. Dolce, intensamente aromatico, vegetale e profumato.", "liq_framb_deg": "Liquore di lampone · 18°", "liq_framb_desc": "100% lamponi freschi. Dolcemente zuccherato, non stucchevole, con grande finezza. Ottimo nel kir.", "liq_vg_deg": "Liquore di 7 frutti rossi · 18°", "liq_vg_desc": "7 frutti rossi, macerazione lunga. Rotondo, fruttato, pieno di carattere — il classico della casa.", "liq_coin_deg": "Liquore di mela cotogna · 18°", "liq_coin_desc": "100% cotogne locali. Vellutato, fruttato, con aromi di confettura. Singolare e pieno di charme.", "liq_dahu_deg": "Liquore artigianale · 25°", "liq_dahu_desc": "Intitolato alla leggenda alpina. Aromi delicati, ricetta esclusiva della distilleria.", "liq_poire_deg": "Acquavite di pera · Frutteto d'alta quota · 42°", "liq_poire_desc": "Pere Williams del frutteto d'alta quota, distillate nell'alambicco del 1921. Pura e fruttata.", "liq_marmote_deg": "Acquavite di susina Brigantina · 42°", "liq_marmote_desc": "Susina endemica del Briançonnais, distillata artigianalmente. Rara, autentica, indimenticabile.", "liq_prune_deg": "Acquavite di susine · 42°", "liq_prune_desc": "Susine da giardino e selvatiche, distillazione artigianale. Franca e meravigliosamente aromatica."}, "es": {"flag": "🇪🇸", "name": "Español", "nav_carte": "Carta", "nav_boissons": "Bebidas", "nav_infos": "Info", "nav_reserver": "Reservar", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 1365 m", "hero_tagline": "Bar de tapas, espíritu del compartir", "hero_sub": "Tapas, tablas para compartir, helados artesanales de los Alpes & cócteles signature de la Distillerie des 4 Frères.", "btn_appeler": "Llamar", "btn_sms": "SMS", "hero_h1": "Todos los días · 8h – 00h", "wc_title": "⚽ Mundial 2026", "wc_sub": "Todos los partidos en directo aquí", "wc_screens": "2 PANTALLAS GIGANTES", "tab_carte": "Carta", "tab_boissons": "Bebidas", "tab_infos": "Info", "tab_tapas": "Tapas", "tab_plats": "Platos", "tab_desserts": "Postres", "tab_glaces": "Helados", "tab_gouters": "Meriendas", "s_tapas_ey": "Para picar & compartir", "s_tapas_t": "Tapas", "s_plats_ey": "En la pizarra", "s_plats_t": "Platos", "s_desserts_ey": "Dulces caseros", "s_desserts_t": "Postres", "s_glaces_ey": "Nuestra selección · 15 sabores", "s_glaces_t": "Helados", "s_gouters_ey": "Para compartir tras las pistas", "s_gouters_t": "Meriendas", "gouters_desc": "Mini churros o mini buñuelos — 3 toppings a elegir", "gouters_toppings": "Coulis de fruta · Nutella · Caramelo · Azúcar · Nata · Avellana · Almendra · Speculoos", "artisan_name": "Nuestra selección de helados", "glaces_selection": "Nuestra selección de helados", "glaces_selection_sub": "15 sabores disponibles", "artisan_sub": "Maestro Artesano Heladero", "boule1": "1 bola", "boule2": "2 bolas", "boule3": "3 bolas", "d_oignons": "Aros dorados en rebozado, salsa BBQ ahumada.", "d_calamar": "Fritos al momento, cuña de limón.", "d_wings": "Glaseadas con salsa BBQ casera.", "d_donut": "Bocados fundentes de queso, rebozado dorado.", "d_mozza": "Corazón fundido, rebozado crujiente.", "d_focaccia": "Mozzarella, jamón curado, parmesano, tartar de tomates, pesto.", "d_nachos": "Guacamole casero, cebollino.", "d_straccia": "100g stracciatella, tostadas de ajo a la plancha, aceite de oliva, albahaca fresca.", "d_charcut": "Comté, tomme de oveja, queso de cabra, jamón curado, coppa, jamón cocido.", "d_maxi": "6 aros de cebolla, 6 chicken wings, 6 calamares, mozza sticks, patatas fritas.", "d_tagliatelles": "200g tagliatelle fresca, nata, parmesano envejecido.", "d_tagliatelles_supp": "+ embutido del día +3€", "d_carpaccio": "En 2 platos, scamorza rallada, tartar de tomates, rúcula, pesto, aceite de oliva, patatas.", "d_bruschetta": "Con patatas fritas o ensalada verde. Crema de chalota, cebollino, avellana, pepinillos.", "d_salade": "Ensalada verde, tomme de oveja, coppa, piñones, tomate, vinagreta arándano-remolacha, croutons.", "d_croque": "Jamón cocido, comté. Con patatas fritas.", "d_pannacotta": "Coulis del momento.", "d_gauffre_s": "", "d_gauffre_g": "Nutella & nata montada.", "d_gauffre_d": "Caramelo salado & nata montada.", "d_fruitee": "Fresa, frambuesa, grosella — nata montada, almendras, coulis de frutas rojas.", "d_praline": "Vainilla, praliné ×2 — coulis caramelo salado, nata montada, avellanas.", "d_exotique": "Maracuyá, mango, lima — nata montada, coulis exótico.", "d_dame": "Chocolate, vainilla ×2 — nata montada, coulis de chocolate.", "tab_bieres": "Cervezas", "tab_softs": "Refrescos", "tab_cocktails": "Cócteles", "tab_vins": "Vinos", "tab_spiritueux": "Destilados", "tab_d4f": "4 Frères", "s_bieres_ey": "Barril & botellas", "s_bieres_t": "Cervezas", "s_softs_ey": "Sin alcohol", "s_softs_t": "Refrescos & Calientes", "s_cocktails_ey": "Coctelería & creaciones", "s_cocktails_t": "Cócteles", "s_vins_ey": "Selección", "s_vins_t": "Vinos & Champagnes", "s_spirit_ey": "Selección", "s_spirit_t": "Destilados", "s_d4f_ey": "Justo al lado", "s_d4f_t": "Distillerie des 4 Frères", "pression_label": "Barril 25cl / 50cl", "bouteilles_label": "Botellas 33cl", "soft_frais": "Bebidas frías", "soft_chaud": "Bebidas calientes", "soft_cocktail": "Cócteles sin alcohol", "classiques": "Cócteles Clásicos", "spritz": "Spritz", "creations": "⭐ Creaciones — Distillerie des 4 Frères", "supp_label": "Suplemento refresco +1€ · Suplemento Red Bull +2€", "verre_label": "En el local 2cl / 4cl", "d4f_story": "<strong>Un alambique centenario, cuatro hermanos, mil aromas.</strong><br><br>Destilería artesanal en el corazón de Serre-Chevalier. Frutas, plantas y bayas cosechadas localmente a mano. Sus spirits se sirven en el bar por copa y en cócteles, y están disponibles para compra.<br><br>La <strong>tienda oficial</strong> está justo al lado — degustación gratuita y botellas a la venta.", "d4f_visiter": "Visitar su web ↗", "boutique_title": "🥃 Tienda oficial justo al lado", "boutique_text": "Degustación gratuita · Botellas a la venta · Productos locales de las Hautes-Alpes", "s_infos_ey": "Encuéntranos", "s_infos_t": "Información práctica", "h_title": "Horarios", "h_tous": "Todos los días", "h_val": "8:00 — 00:00", "h_pdj": "Desayuno", "h_pdj_v": "Desde las 8:00", "h_cuisine": "Servicio continuo", "h_cuisine_v": "Cocina hasta las 22:30", "a_title": "Dirección", "maps": "Abrir en Maps", "r_title": "Reservas", "r_tel": "Teléfono & SMS", "btn_call": "Llamar ahora", "btn_sms2": "Enviar SMS", "spirit_title": "Le Trappeur es", "spirit_1": "🏔 Bar de tapas en Saint-Chaffrey", "spirit_2": "🍦 Nuestra selección de helados", "spirit_3": "🥃 Cócteles & spirits de los 4 Frères", "spirit_4": "⚽ Mundial en 2 pantallas gigantes", "spirit_5": "🍕 Tapas & tablas para compartir", "foot_sub": "Bar de tapas · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "Socio", "foot_legal": "Precios netos, impuestos y servicio incluidos · Hecho en casa, del mercado al plato", "foot_alcool": "El abuso de alcohol es peligroso para la salud, consúmalo con moderación. Venta prohibida a menores de 18 años.", "sms_body": "Hola, me gustaría reservar una mesa en Le Trappeur.", "liq_new": "NUEVO", "liq_mieleze_deg": "Licor alerce & miel de montaña · 35°", "liq_mieleze_desc": "La dulzura envolvente de la miel de montaña se encuentra con la frescura resinosa del alerce. Único.", "liq_gin100_deg": "Gin artesanal, Serre-Chevalier · 37,5°", "liq_gin100_desc": "El primer gin destilado en Serre-Chevalier. Enebro maduro, especias picantes, toque cítrico fresco.", "liq_phoenix_deg": "Gin artesanal, Serre-Chevalier · 40°", "liq_phoenix_desc": "Carácter intenso sustentado por aguardiente de alerce casero. Amaderado, intenso y personal.", "liq_amante_deg": "Licor de menta silvestre · 25°", "liq_amante_desc": "Un ensamblaje de mentas silvestres de las Hautes-Alpes. Fresco, dulce e intensamente aromático.", "liq_manne_deg": "Licor de alerce, Hautes-Alpes · 35°", "liq_manne_desc": "Yemas de alerce recolectadas a mano en el valle. Amaderado, resinoso y refrescante — 100% local.", "liq_brin_deg": "Licor de génépi · 35°", "liq_brin_desc": "100% Artemisia Mutellina. La quintaesencia del génépi de alta montaña — floral, herbal y delicado.", "liq_v40_deg": "Licor de verbena limonera · 40°", "liq_v40_desc": "Digestivo fresco y elegante. Sutilmente aromático con brillante final cítrico. Frío o con tónica.", "liq_ysope_deg": "Licor de hisopo, Hautes-Alpes · 35°", "liq_ysope_desc": "100% Hyssopus officinalis. Vegetal, floral, ligeramente mentolado. Como aperitivo o en un kir.", "liq_thymus_deg": "Licor de tomillo silvestre · 18°", "liq_thymus_desc": "Maceración de plantas frescas en flor. Dulce, intensamente aromático, vegetal y perfumado.", "liq_framb_deg": "Licor de frambuesa · 18°", "liq_framb_desc": "100% frambuesas frescas. Suavemente dulce, con gran finura. Maravilloso en kir de champán.", "liq_vg_deg": "Licor de 7 frutas rojas · 18°", "liq_vg_desc": "7 frutas rojas, maceración larga. Redondo, afrutado, lleno de carácter — el clásico de la casa.", "liq_coin_deg": "Licor de membrillo · 18°", "liq_coin_desc": "100% membrillos locales. Aterciopelado, afrutado, con aromas de confitura. Singular y lleno de encanto.", "liq_dahu_deg": "Licor artesanal · 25°", "liq_dahu_desc": "Nombrado tras la leyenda alpina. Aromas delicados, receta exclusiva de la destilería.", "liq_poire_deg": "Aguardiente de pera · Huerto de altura · 42°", "liq_poire_desc": "Peras Williams del huerto de altura, destiladas en el alambique de 1921. Pura y afrutada.", "liq_marmote_deg": "Aguardiente de ciruela Brigantina · 42°", "liq_marmote_desc": "Ciruela endémica del Briançonnais, destilada artesanalmente. Rara, auténtica e inolvidable.", "liq_prune_deg": "Aguardiente de ciruelas · 42°", "liq_prune_desc": "Ciruelas de jardín y silvestres, destilación artesanal. Franca y maravillosamente aromática."}, "zh": {"flag": "🇨🇳", "name": "中文", "nav_carte": "菜单", "nav_boissons": "饮品", "nav_infos": "信息", "nav_reserver": "预订", "hero_eyebrow": "Saint-Chaffrey · Serre Chevalier · 海拔1365米", "hero_tagline": "塔帕斯酒吧，分享精神", "hero_sub": "塔帕斯、共享拼盘、阿尔卑斯手工冰淇淋及4兄弟蒸馏厂特色鸡尾酒。", "btn_appeler": "致电", "btn_sms": "短信", "hero_h1": "每天开放 · 早8时 – 午夜", "wc_title": "⚽ 2026世界杯", "wc_sub": "所有比赛在本店现场直播", "wc_screens": "2块巨幕大屏", "tab_carte": "菜单", "tab_boissons": "饮品", "tab_infos": "信息", "tab_tapas": "小食", "tab_plats": "主菜", "tab_desserts": "甜点", "tab_glaces": "冰淇淋", "tab_gouters": "下午茶", "s_tapas_ey": "小吃与分享", "s_tapas_t": "塔帕斯", "s_plats_ey": "今日菜单", "s_plats_t": "主菜", "s_desserts_ey": "自制甜点", "s_desserts_t": "甜点", "s_glaces_ey": "精选 · 15种口味", "s_glaces_t": "冰淇淋", "s_gouters_ey": "滑雪后共享", "s_gouters_t": "下午茶", "gouters_desc": "迷你吉事果或迷你甜甜圈 — 可选3种配料", "gouters_toppings": "水果库利 · 能多益 · 焦糖 · 砂糖 · 鲜奶油 · 榛子 · 杏仁 · 比利时焦糖饼", "artisan_name": "我们精选冰淇淋", "glaces_selection": "我们精选冰淇淋", "glaces_selection_sub": "15种口味", "artisan_sub": "手工冰淇淋大师认证", "boule1": "1球", "boule2": "2球", "boule3": "3球", "d_oignons": "金黄酥脆洋葱圈，烟熏烧烤酱。", "d_calamar": "现炸鱿鱼圈，柠檬角。", "d_wings": "自制烧烤酱腌制鸡翅。", "d_donut": "香浓芝士小球，金黄面包糠。", "d_mozza": "流心马苏里拉，酥脆面包糠。", "d_focaccia": "马苏里拉、生火腿、帕尔马森芝士、番茄鞑靼、青酱。", "d_nachos": "自制牛油果酱，细香葱。", "d_straccia": "100g斯特拉恰泰拉，烤蒜面包，橄榄油，新鲜罗勒。", "d_charcut": "Comté芝士、萨瓦番茄芝士、山羊奶酪、生火腿、意大利风干肉、火腿。", "d_maxi": "6个洋葱圈、6个鸡翅、6个鱿鱼圈、马苏里拉条、薯条。", "d_tagliatelles": "200g新鲜意面、奶油、陈年帕尔马森芝士。", "d_tagliatelles_supp": "+ 当日熟食 +3€", "d_carpaccio": "分两盘呈上，斯卡莫扎芝士、番茄鞑靼、芝麻菜、青酱、橄榄油、薯条。", "d_bruschetta": "配薯条或绿色沙拉。葱头奶油、细香葱、榛子、黄瓜泡菜。", "d_salade": "绿色沙拉、羊奶芝士、意大利风干肉、松子、番茄、蓝莓甜菜根油醋汁、烤面包块。", "d_croque": "火腿、Comté芝士。配薯条。", "d_pannacotta": "当日库利。", "d_gauffre_s": "", "d_gauffre_g": "能多益巧克力酱 & 鲜奶油。", "d_gauffre_d": "盐味焦糖 & 鲜奶油。", "d_fruitee": "草莓、树莓、黑加仑 — 鲜奶油、杏仁、红色水果库利。", "d_praline": "香草、果仁糖×2 — 盐味焦糖库利、鲜奶油、榛子。", "d_exotique": "百香果、芒果、青柠 — 鲜奶油、异域水果库利。", "d_dame": "巧克力、香草×2 — 鲜奶油、巧克力库利。", "tab_bieres": "啤酒", "tab_softs": "软饮", "tab_cocktails": "鸡尾酒", "tab_vins": "葡萄酒", "tab_spiritueux": "烈酒", "tab_d4f": "4兄弟", "s_bieres_ey": "生啤 & 瓶装", "s_bieres_t": "啤酒", "s_softs_ey": "无酒精", "s_softs_t": "软饮 & 热饮", "s_cocktails_ey": "摇酒器 & 创意", "s_cocktails_t": "鸡尾酒", "s_vins_ey": "精选", "s_vins_t": "葡萄酒 & 香槟", "s_spirit_ey": "精选", "s_spirit_t": "烈酒", "s_d4f_ey": "就在隔壁", "s_d4f_t": "4兄弟蒸馏厂", "pression_label": "生啤 25cl / 50cl", "bouteilles_label": "瓶装 33cl", "soft_frais": "冷饮", "soft_chaud": "热饮", "soft_cocktail": "无酒精鸡尾酒", "classiques": "经典鸡尾酒", "spritz": "气泡鸡尾酒", "creations": "⭐ 特调 — 4兄弟蒸馏厂", "supp_label": "软饮附加 +1€ · 红牛附加 +2€", "verre_label": "现场品饮 2cl / 4cl", "d4f_story": "<strong>百年铜制蒸馏器，四兄弟，千种香气。</strong><br><br>Serre-Chevalier核心的手工蒸馏厂。当地手工采摘的水果、植物和浆果。他们的精酿烈酒在吧台以单杯和鸡尾酒的形式供应，并可购买。<br><br><strong>官方专卖店</strong>就在隔壁 — 免费品鉴，瓶装产品可购买。", "d4f_visiter": "访问他们的网站 ↗", "boutique_title": "🥃 隔壁官方专卖店", "boutique_text": "免费品鉴 · 瓶装产品销售 · 上阿尔卑斯省当地产品", "s_infos_ey": "找到我们", "s_infos_t": "实用信息", "h_title": "营业时间", "h_tous": "每天", "h_val": "早8:00 — 午夜", "h_pdj": "早餐", "h_pdj_v": "早8:00起", "h_cuisine": "全天服务", "h_cuisine_v": "厨房服务至22:30", "a_title": "地址", "maps": "在地图中打开", "r_title": "预订", "r_tel": "电话 & 短信", "btn_call": "立即致电", "btn_sms2": "发送短信", "spirit_title": "Le Trappeur 是", "spirit_1": "🏔 圣沙弗雷的塔帕斯酒吧", "spirit_2": "🍦 我们精选冰淇淋", "spirit_3": "🥃 4兄弟蒸馏厂鸡尾酒 & 烈酒", "spirit_4": "⚽ 世界杯赛事 2块巨幕直播", "spirit_5": "🍕 塔帕斯 & 共享拼盘", "foot_sub": "塔帕斯酒吧 · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "合作伙伴", "foot_legal": "价格含税及服务费 · 手工制作，从市场到餐桌", "foot_alcool": "过量饮酒有害健康，请适量饮用。禁止向18岁以下未成年人销售。", "sms_body": "您好，我想在Le Trappeur预订一张桌子。", "liq_new": "新品", "liq_mieleze_deg": "落叶松 & 山地蜂蜜利口酒 · 35°", "liq_mieleze_desc": "山地蜂蜜的包裹甜蜜与落叶松的树脂清新完美融合。独一无二。", "liq_gin100_deg": "手工金酒，Serre-Chevalier · 37.5°", "liq_gin100_desc": "Serre-Chevalier首款金酒。成熟杜松子、辛辣香料、清爽柑橘收尾。", "liq_phoenix_deg": "手工金酒，Serre-Chevalier · 40°", "liq_phoenix_desc": "以自制落叶松烈酒为基底，个性鲜明。木质感强烈，浓郁而独特。", "liq_amante_deg": "野生薄荷利口酒 · 25°", "liq_amante_desc": "上阿尔卑斯省多种野生薄荷的调配。清凉、甘甜、香气浓郁。", "liq_manne_deg": "落叶松利口酒，上阿尔卑斯省 · 35°", "liq_manne_desc": "手工采摘的山谷落叶松嫩芽。木质、树脂、清爽——100%本地原料。", "liq_brin_deg": "Génépi利口酒 · 35°", "liq_brin_desc": "100% 蒿属植物Mutellina。高山génépi的精华——花香、草本、精致。", "liq_v40_deg": "柠檬马鞭草利口酒 · 40°", "liq_v40_desc": "清新优雅的餐后酒，香气细腻，柠檬清香悠长。冰镇或加汤力水饮用。", "liq_ysope_deg": "牛膝草利口酒，上阿尔卑斯省 · 35°", "liq_ysope_desc": "100% 药用牛膝草。草本、花香、微薄荷味。适合作开胃酒或调kir鸡尾酒。", "liq_thymus_deg": "野生百里香利口酒 · 18°", "liq_thymus_desc": "新鲜开花植物浸渍。甘甜，香气浓郁，草本芬芳——山地风味的精华。", "liq_framb_deg": "覆盆子利口酒 · 18°", "liq_framb_desc": "100%新鲜覆盆子。微甜不腻，口感细腻。用于香槟kir尤为出色。", "liq_vg_deg": "7种红色水果利口酒 · 18°", "liq_vg_desc": "7种红色水果长时间浸渍。圆润、果香、个性十足——本店经典。", "liq_coin_deg": "榅桲利口酒 · 18°", "liq_coin_desc": "100%本地榅桲。丝绒质感，果香浓郁，带果酱香气。独特迷人。", "liq_dahu_deg": "手工利口酒 · 25°", "liq_dahu_desc": "以阿尔卑斯传说中的生物命名。香气细腻，蒸馏厂独家秘方。", "liq_poire_deg": "梨白兰地 · 高海拔果园 · 42°", "liq_poire_desc": "高海拔果园的威廉姆斯梨，用1921年铜制蒸馏器蒸馏而成。纯净果香。", "liq_marmote_deg": "布里甘蒂纳李子白兰地 · 42°", "liq_marmote_desc": "布里昂松谷特有李子，手工蒸馏。稀有、纯正、令人难忘。", "liq_prune_deg": "李子白兰地 · 42°", "liq_prune_desc": "园中与野生李子，手工蒸馏。纯正直接，香气怡人。"}, "ja": {"flag": "🇯🇵", "name": "日本語", "nav_carte": "メニュー", "nav_boissons": "ドリンク", "nav_infos": "案内", "nav_reserver": "予約", "hero_eyebrow": "サン＝シャフレー · セール・シュヴァリエ · 標高1365m", "hero_tagline": "タパスバー、シェアの精神", "hero_sub": "タパス、シェアリングボード、アルプス産職人アイスクリーム、4兄弟蒸留所のシグネチャーカクテル。", "btn_appeler": "電話", "btn_sms": "SMS", "hero_h1": "毎日営業 · 8時〜深夜0時", "wc_title": "⚽ 2026ワールドカップ", "wc_sub": "全試合を当店でライブ中継", "wc_screens": "大型スクリーン2面", "tab_carte": "メニュー", "tab_boissons": "ドリンク", "tab_infos": "案内", "tab_tapas": "タパス", "tab_plats": "メイン", "tab_desserts": "デザート", "tab_glaces": "アイス", "tab_gouters": "おやつ", "s_tapas_ey": "つまみ & シェア", "s_tapas_t": "タパス", "s_plats_ey": "本日のメニュー", "s_plats_t": "メインディッシュ", "s_desserts_ey": "手作りスイーツ", "s_desserts_t": "デザート", "s_glaces_ey": "セレクション · 15フレーバー", "s_glaces_t": "アイスクリーム", "s_gouters_ey": "ゲレンデ後のシェア", "s_gouters_t": "おやつ", "gouters_desc": "ミニチュロスまたはミニドーナツ — トッピング3種類お選び", "gouters_toppings": "フルーツクーリ · ヌテラ · キャラメル · 砂糖 · ホイップ · ヘーゼルナッツ · アーモンド · スペキュロス", "artisan_name": "アイスクリーム セレクション", "glaces_selection": "アイスクリーム セレクション", "glaces_selection_sub": "15フレーバー", "artisan_sub": "マスタークラフトマン認定", "boule1": "1スクープ", "boule2": "2スクープ", "boule3": "3スクープ", "d_oignons": "黄金色の衣、スモーキーBBQソース。", "d_calamar": "揚げたて、レモン添え。", "d_wings": "自家製BBQソースでグレイズ。", "d_donut": "とろけるチーズ小球、黄金パン粉。", "d_mozza": "とろとろチーズ、サクサクパン粉。", "d_focaccia": "モッツァレラ、生ハム、パルメザン、トマトタルタル、ペスト。", "d_nachos": "自家製グアカモーレ、チャイブ。", "d_straccia": "ストラッチャテッラ100g、ガーリックトースト、オリーブオイル、フレッシュバジル。", "d_charcut": "コンテ、羊のトム、ヤギのチーズ、生ハム、コッパ、ハム。", "d_maxi": "オニオンリング6個、チキンウイング6個、カラマリ6個、モッツァスティック、フライドポテト。", "d_tagliatelles": "タリアテッレ200g、クリーム、熟成パルメザン。", "d_tagliatelles_supp": "+ 本日の自家製ハム +3€", "d_carpaccio": "2皿で提供、スモークスカモルツァ、トマトタルタル、ルッコラ、ペスト、オリーブオイル、フライドポテト。", "d_bruschetta": "フライドポテトまたはグリーンサラダ添え。シャロットクリーム、チャイブ、ヘーゼルナッツ、きゅうりピクルス。", "d_salade": "グリーンサラダ、羊のトム、コッパ、松の実、トマト、ブルーベリービーツドレッシング、クルトン。", "d_croque": "ハム、コンテ。フライドポテト添え。", "d_pannacotta": "本日のクーリ。", "d_gauffre_s": "", "d_gauffre_g": "ヌテラ & ホイップクリーム。", "d_gauffre_d": "塩キャラメル & ホイップクリーム。", "d_fruitee": "イチゴ、ラズベリー、カシス — ホイップ、アーモンド、赤い果実クーリ。", "d_praline": "バニラ、プラリネ×2 — 塩キャラメルクーリ、ホイップ、ヘーゼルナッツ。", "d_exotique": "パッション、マンゴー、ライム — ホイップ、エキゾチッククーリ。", "d_dame": "チョコレート、バニラ×2 — ホイップ、チョコレートクーリ。", "tab_bieres": "ビール", "tab_softs": "ソフトドリンク", "tab_cocktails": "カクテル", "tab_vins": "ワイン", "tab_spiritueux": "スピリッツ", "tab_d4f": "4兄弟", "s_bieres_ey": "生ビール & ボトル", "s_bieres_t": "ビール", "s_softs_ey": "ノンアルコール", "s_softs_t": "ソフトドリンク & ホットドリンク", "s_cocktails_ey": "シェイカー & クリエイション", "s_cocktails_t": "カクテル", "s_vins_ey": "セレクション", "s_vins_t": "ワイン & シャンパン", "s_spirit_ey": "セレクション", "s_spirit_t": "スピリッツ", "s_d4f_ey": "すぐ隣に", "s_d4f_t": "4兄弟蒸留所", "pression_label": "生ビール 25cl / 50cl", "bouteilles_label": "ボトル 33cl", "soft_frais": "コールドドリンク", "soft_chaud": "ホットドリンク", "soft_cocktail": "ノンアルコールカクテル", "classiques": "クラシックカクテル", "spritz": "スプリッツ", "creations": "⭐ 4兄弟蒸留所シグネチャーカクテル", "supp_label": "ソフトドリンク追加 +1€ · レッドブル追加 +2€", "verre_label": "グラス 2cl / 4cl", "d4f_story": "<strong>百年の蒸留器、4人の兄弟、無数の香り。</strong><br><br>セール・シュヴァリエの中心にある職人蒸留所。地元で手摘みした果物・植物・ベリーから造るスピリッツ。バーではグラスとカクテルでお楽しみいただけます。<br><br><strong>公式ショップ</strong>はすぐ隣 — 無料試飲、ボトル購入可。", "d4f_visiter": "ウェブサイトを見る ↗", "boutique_title": "🥃 すぐ隣の公式ショップ", "boutique_text": "無料試飲 · ボトル販売 · オート＝ザルプ県の地元産品", "s_infos_ey": "アクセス", "s_infos_t": "ご案内", "h_title": "営業時間", "h_tous": "毎日", "h_val": "8:00 — 深夜0:00", "h_pdj": "朝食", "h_pdj_v": "8:00より", "h_cuisine": "通し営業", "h_cuisine_v": "キッチンは22:30まで", "a_title": "住所", "maps": "Mapsで開く", "r_title": "ご予約", "r_tel": "電話 & SMS", "btn_call": "今すぐ電話", "btn_sms2": "SMSを送る", "spirit_title": "Le Trappeur とは", "spirit_1": "🏔 サン＝シャフレーのタパスバー", "spirit_2": "🍦 アイスクリーム セレクション", "spirit_3": "🥃 4兄弟蒸留所のカクテル & スピリッツ", "spirit_4": "⚽ ワールドカップ 大型スクリーン2面", "spirit_5": "🍕 タパス & シェアリングボード", "foot_sub": "タパスバー · 480 Rue du Centre · 05330 Saint-Chaffrey · Serre Chevalier", "foot_partner": "パートナー", "foot_legal": "表示価格は税・サービス料込み · 手作り、市場から食卓へ", "foot_alcool": "飲酒は20歳を過ぎてから。お酒は適量を。未成年者への販売は禁止されています。", "sms_body": "こんにちは、Le Trappeurでテーブルを予約したいのですが。", "liq_new": "新", "liq_mieleze_deg": "カラマツ & 山のはちみつリキュール · 35°", "liq_mieleze_desc": "山のはちみつの包み込む甘さとカラマツの樹脂の爽やかさが融合。他に類を見ない一本。", "liq_gin100_deg": "クラフトジン、Serre-Chevalier · 37.5°", "liq_gin100_desc": "セール・シュヴァリエ初のジン。完熟ジュニパー、ペッパースパイス、爽やかな柑橘の余韻。", "liq_phoenix_deg": "クラフトジン、Serre-Chevalier · 40°", "liq_phoenix_desc": "自家製カラマツのオードヴィーが生む力強い個性。ウッディで濃厚、個性的な一本。", "liq_amante_deg": "野生ミントリキュール · 25°", "liq_amante_desc": "オート＝ザルプ産野生ミントのブレンド。クール、まろやか、濃厚な香り。", "liq_manne_deg": "カラマツリキュール、オート＝ザルプ · 35°", "liq_manne_desc": "渓谷で手摘みしたカラマツの新芽。木の香り、樹脂感、爽快感——100%地元産。", "liq_brin_deg": "ジェネピリキュール · 35°", "liq_brin_desc": "100% アルテミシア・ムテリナ。高山ジェネピの真髄——花の香り、ハーブ、繊細。", "liq_v40_deg": "レモンバーベナリキュール · 40°", "liq_v40_desc": "爽やかで上品な食後酒。繊細な香りとレモンの余韻。冷やしてまたはトニックウォーターで。", "liq_ysope_deg": "ヤナギハッカリキュール、オート＝ザルプ · 35°", "liq_ysope_desc": "100% ヤナギハッカ。草本的、花の香り、ほのかなミント。アペリティフやキールに最適。", "liq_thymus_deg": "野生タイムリキュール · 18°", "liq_thymus_desc": "新鮮な開花植物の浸漬酒。甘く、濃厚な香り、草本感あふれる山の味わい。", "liq_framb_deg": "ラズベリーリキュール · 18°", "liq_framb_desc": "100%新鮮ラズベリー。上品な甘さ、くどくない、繊細な味わい。シャンパンキールに最高。", "liq_vg_deg": "7種の赤い果実リキュール · 18°", "liq_vg_desc": "7種の赤い果実をじっくり浸漬。まろやか、フルーティー、個性豊か——定番の一本。", "liq_coin_deg": "マルメロリキュール · 18°", "liq_coin_desc": "100%地元産マルメロ。なめらかでフルーティー、ジャムのような香り。独特で魅力的。", "liq_dahu_deg": "クラフトリキュール · 25°", "liq_dahu_desc": "アルプスの伝説にちなんで名付けられた。繊細な香り、蒸留所の秘伝レシピ。", "liq_poire_deg": "洋梨のオードヴィー · 高地農園 · 42°", "liq_poire_desc": "高地農園のウィリアムス洋梨を1921年の銅製蒸留器で蒸留。ピュアでフルーティー。", "liq_marmote_deg": "ブリガンタンプラムのオードヴィー · 42°", "liq_marmote_desc": "ブリアンソン渓谷固有のプラム、職人による蒸留。希少、本物、忘れられない一本。", "liq_prune_deg": "プラムのオードヴィー · 42°", "liq_prune_desc": "栽培・野生のプラム、職人蒸留。率直で芳醇な香り。"}};
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const tr = TRANSLATIONS[lang];
+  if (!tr) return;
+  document.documentElement.lang = lang;
+
+  // Lang buttons
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.includes(tr.flag));
+  });
+
+  // Simple text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (tr[k] !== undefined) el.textContent = tr[k];
+  });
+
+  // HTML nodes (distillerie story)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.getAttribute('data-i18n-html');
+    if (tr[k] !== undefined) el.innerHTML = tr[k];
+  });
+
+  // SMS links
+  const smsBody = encodeURIComponent(tr.sms_body || '');
+  document.querySelectorAll('a[href^="sms:"]').forEach(a => {
+    a.href = 'sms:+33625422015?body=' + smsBody;
+  });
+
+  // Nav link texts via main-tab onclick (already in DOM via data-i18n spans)
+}
+
+// Init with fr
+setLang('fr');
+</script>
+
+</body>
+</html>
